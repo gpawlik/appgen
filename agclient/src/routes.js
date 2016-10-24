@@ -14,6 +14,7 @@ import EventPageContainer from './components/EventsArea/EventPageContainer';
 import ProfileContainer from './components/ProfileArea/ProfileContainer';
 import SignupContainer from './components/SignupArea/SignupContainer';
 import NewEventPage from './components/EventsArea/NewEventPage';
+import ErrorPage from './components/ErrorArea/ErrorPage';
 import About from './components/AboutArea/About';
 import Login from './components/LoginArea/Login';
 
@@ -27,5 +28,6 @@ export default (
     <Route path="/about" component={About} />    
     <Route path="/login" component={Login} />
     <Route path="/signup" component={SignupContainer} />
+    <Route path="/404" component={ErrorPage} />
   </Route>
 );

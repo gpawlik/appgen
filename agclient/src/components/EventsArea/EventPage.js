@@ -3,7 +3,7 @@ import moment from 'moment';
 
 class EventPage extends React.Component {    
     render () {
-        const { title, headline, description, eventDate, createdAt } = this.props.event;
+        const { _id, title, headline, description, eventDate, createdAt } = this.props.event;
         const eventDateFormatted = moment(eventDate).format('DD/MM/YYYY'); 
         const timeCreated = moment(createdAt).fromNow();        
         return (
@@ -32,6 +32,7 @@ class EventPage extends React.Component {
                         {timeCreated}
                     </p>
                 </div>
+                <span onClick={() => this.props.deleteEvent(_id) } className="delete-icon">x</span>
             </div>
         )        
     }

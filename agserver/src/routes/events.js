@@ -46,12 +46,15 @@ router.get('/:eventId', function(req, res) {
 });
 
 router.delete('/:eventId', adminRestricted, function(req, res) {
-    Event.remove({
-        _id: req.params.eventId
-    }, function(err, event) {
-        if (err) res.send(err);
-        res.json({ message: 'Successfully deleted' });
-    });
+    if(req.params.eventId !== 'undefined') {
+        Event.remove({ _id: req.params.eventId })
+            .then(event => res.json({ message: 'Successfully deleted' }))
+            .catch(err => res.send(err));        
+    }
+    else {
+        res.status(404).json({ message: 'Wrong user Id.' })
+    }
+
 });
 
 export default router;

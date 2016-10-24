@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import EventsList from './EventsList';
 import Preloader from '../../common/Preloader';
-import { getEvents, deleteEvent } from '../../actions/eventActions';
+import { getEvents } from '../../actions/eventActions';
 
 class EventsContainer extends React.Component {
     
@@ -23,18 +23,14 @@ class EventsContainer extends React.Component {
         return (
             <div>
                 {this.state.isLoading && <Preloader />}                
-                <EventsList 
-                    events={this.props.events}
-                    deleteEvent={this.props.deleteEvent}             
-                />
+                <EventsList events={this.props.events} />
             </div>
         )
     }        
 };
 
 EventsContainer.propTypes = {
-    events: React.PropTypes.array.isRequired,
-    deleteEvent: React.PropTypes.func.isRequired
+    events: React.PropTypes.array.isRequired
 }
 
 const mapStateToProps = function(store) {
@@ -43,4 +39,4 @@ const mapStateToProps = function(store) {
     };
 };
 
-export default connect(mapStateToProps, { getEvents, deleteEvent })(EventsContainer);
+export default connect(mapStateToProps, { getEvents })(EventsContainer);

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import EventPage from './EventPage';
 import Preloader from '../../common/Preloader';
-import { getEvent } from '../../actions/eventActions';
+import { getEvent, deleteEvent } from '../../actions/eventActions';
 
 class EventPageContainer extends React.Component {   
     
@@ -15,15 +15,26 @@ class EventPageContainer extends React.Component {
     
     componentDidMount() {
         this.props.getEvent(this.props.params.eventId).then(res => {
-            this.setState({ isLoading: false });
+            if(res) {
+                this.setState({ isLoading: false });
+            }
+            else {
+                this.context.router.push('/404');
+            }            
+        })
+        .catch(err => {
+            this.context.router.push('/404');
         });
     }
 
-    render() {        
+    render() {     
+        const { event, deleteEvent } = this.props;   
         return (
             <div>
                 {this.state.isLoading && <Preloader />}                
-                <EventPage event={this.props.event} />
+                <EventPage 
+                    event={event}
+                    deleteEvent={deleteEvent} />
             </div>            
         )
     }        
@@ -31,8 +42,13 @@ class EventPageContainer extends React.Component {
 
 EventPageContainer.propTypes = {
     event: React.PropTypes.object.isRequired,
-    getEvent: React.PropTypes.func.isRequired
+    getEvent: React.PropTypes.func.isRequired,
+    deleteEvent: React.PropTypes.func.isRequired
 }
+
+EventPageContainer.contextTypes = {
+    router: React.PropTypes.object.isRequired
+};
 
 const mapStateToProps = function(store) {
     return {
@@ -40,4 +56,4 @@ const mapStateToProps = function(store) {
     };
 };
 
-export default connect(mapStateToProps, { getEvent })(EventPageContainer);
+export default connect(mapStateToProps, { getEvent, deleteEvent })(EventPageContainer);
