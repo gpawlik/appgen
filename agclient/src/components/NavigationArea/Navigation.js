@@ -45,7 +45,7 @@ class NavigationBar extends React.Component {
                     <li><Link to="/">Events</Link></li>  
                     <li><Link to="/users">Users</Link></li>                                                 
                     <li><Link to="/about">About</Link></li>
-                    { user.isAdmin ? adminLinks : '' }                                        
+                    { user.isAdmin && adminLinks }                                        
                 </ul>                
                 <ul className="AccountLinks">
                     { isAuthenticated ? userLinks : guestLinks } 

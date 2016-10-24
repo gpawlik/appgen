@@ -14,13 +14,8 @@ class EventPageContainer extends React.Component {
     }       
     
     componentDidMount() {
-        this.props.getEvent(this.props.params.eventId).then(res => {
-            if(res) {
-                this.setState({ isLoading: false });
-            }
-            else {
-                this.context.router.push('/404');
-            }            
+        this.props.getEvent(this.props.params.eventId).then(res => {            
+            this.setState({ isLoading: false });          
         })
         .catch(err => {
             this.context.router.push('/404');
@@ -34,7 +29,8 @@ class EventPageContainer extends React.Component {
                 {this.state.isLoading && <Preloader />}                
                 <EventPage 
                     event={event}
-                    deleteEvent={deleteEvent} />
+                    deleteEvent={deleteEvent}
+                    isAdmin={this.props.auth.user.isAdmin} />
             </div>            
         )
     }        
@@ -43,7 +39,8 @@ class EventPageContainer extends React.Component {
 EventPageContainer.propTypes = {
     event: React.PropTypes.object.isRequired,
     getEvent: React.PropTypes.func.isRequired,
-    deleteEvent: React.PropTypes.func.isRequired
+    deleteEvent: React.PropTypes.func.isRequired,
+    auth: React.PropTypes.object.isRequired,
 }
 
 EventPageContainer.contextTypes = {
@@ -52,7 +49,8 @@ EventPageContainer.contextTypes = {
 
 const mapStateToProps = function(store) {
     return {
-        event: store.eventState.event
+        event: store.eventState.event,
+        auth: store.authState
     };
 };
 

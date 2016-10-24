@@ -10,7 +10,20 @@
     cursor: pointer;
     margin-bottom: 5px;    
     &:hover {
-        background-color: darken($primary-dark, 5%)
+        background-color: darken($primary-dark, 5%);
+        color: $primary-light;        
+    }
+}
+
+.button-secondary {
+    background-color: $primary-dark;
+    padding: 5px 10px;
+    color: $primary-light;
+    border-radius: 2px;
+    cursor: pointer;
+    &:hover {
+        background-color: darken($primary-dark, 5%);
+        color: $primary-light;
     }
 }
 

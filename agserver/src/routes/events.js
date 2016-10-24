@@ -39,20 +39,24 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:eventId', function(req, res) {
-    Event.findById(req.params.eventId, function(err, event) {
-        if (err) res.send(err);
-        res.json(event);
-    });
+    if(req.params.eventId !== 'undefined') {
+    Event.findById(req.params.eventId)
+        .then(event => res.json(event))
+        .catch(err => res.status(404).json({ message: 'Error occured:', err }));
+    }
+    else {
+        res.status(404).json({ message: 'Wrong event Id provided.' })
+    }        
 });
 
 router.delete('/:eventId', adminRestricted, function(req, res) {
     if(req.params.eventId !== 'undefined') {
         Event.remove({ _id: req.params.eventId })
             .then(event => res.json({ message: 'Successfully deleted' }))
-            .catch(err => res.send(err));        
+            .catch(err => res.status(404).json({ message: 'Error occured:', err }));      
     }
     else {
-        res.status(404).json({ message: 'Wrong user Id.' })
+        res.status(404).json({ message: 'Wrong event Id provided.' })
     }
 
 });

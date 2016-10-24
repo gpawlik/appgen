@@ -1,14 +1,21 @@
 import React from 'react';
 import moment from 'moment';
+import { Link } from 'react-router';
 
 class EventPage extends React.Component {    
     render () {
         const { _id, title, headline, description, eventDate, createdAt } = this.props.event;
         const eventDateFormatted = moment(eventDate).format('DD/MM/YYYY'); 
-        const timeCreated = moment(createdAt).fromNow();        
+        const timeCreated = moment(createdAt).fromNow(); 
+        const adminLinks = (
+            <div className="toolbox">
+                <span onClick={() => this.props.deleteEvent(_id)} className="button-secondary">delete</span>
+                <Link to={'/event/edit/' + _id} className="button-secondary">edit</Link>                        
+            </div>             
+        );       
         return (
             <div className="EventProfile">
-                <h3>Event Profile</h3>
+                <h3>Event Profile {this.props.isAdmin && 'hello admin!'}</h3>
                 <div className="profile-image"></div>
                 <div className="content-wrapper">
                     <p>
@@ -31,8 +38,8 @@ class EventPage extends React.Component {
                         <span className="profile-label">Created</span> 
                         {timeCreated}
                     </p>
+                    {this.props.isAdmin && adminLinks}
                 </div>
-                <span onClick={() => this.props.deleteEvent(_id) } className="delete-icon">x</span>
             </div>
         )        
     }

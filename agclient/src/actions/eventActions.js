@@ -16,6 +16,7 @@ export function getEvent(eventId) {
     return dispatch => {
         return axios.get('/api/events/' + eventId)
             .then(res => { 
+                console.log('RES', res);
                 dispatch({
                     type: types.GET_EVENT_SUCCESS,
                     event: res.data
