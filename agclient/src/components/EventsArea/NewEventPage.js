@@ -46,7 +46,7 @@ class NewEventPage extends React.Component {
         const { title, headline, description, eventDate, errors, isFormLoading } = this.state;
         
         return (
-            <div>
+            <div>                
                 <h3>New Event</h3>
                 <form onSubmit={this.onSubmit} className="form-box">                                
                     <div className="content-wrapper">

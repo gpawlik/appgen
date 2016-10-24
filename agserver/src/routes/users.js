@@ -56,7 +56,7 @@ router.post('/', function(req, res) {
 });
 
 // Get all the users
-router.get('/', adminRestricted, function(req, res) {
+router.get('/', function(req, res) {
     User.find()
         .limit(20)
         .sort({ createdAt: 1 })
@@ -68,7 +68,7 @@ router.get('/', adminRestricted, function(req, res) {
 });
 
 // Get users by identifier
-router.get('/:identifier', authenticate, function(req, res) {
+router.get('/:identifier', function(req, res) {
     const identifier = req.params.identifier;
     User.findOne({ $or: [{ username: identifier }, { email: identifier }] })
         .select('username email isAdmin')

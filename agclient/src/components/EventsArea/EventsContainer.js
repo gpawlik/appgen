@@ -22,7 +22,7 @@ class EventsContainer extends React.Component {
     render() {      
         return (
             <div>
-                {this.state.isLoading && <Preloader />}
+                {this.state.isLoading && <Preloader />}                
                 <EventsList 
                     events={this.props.events}
                     deleteEvent={this.props.deleteEvent}             

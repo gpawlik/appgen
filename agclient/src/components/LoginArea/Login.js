@@ -2,13 +2,14 @@ import React from 'react';
 import LoginForm from './LoginForm';
 import { connect } from 'react-redux';
 import { login } from '../../actions/authActions';
-
+import MessageList from './../MessageArea/MessageList';
 
 class Login extends React.Component {
     render() {
         const { login } = this.props;
         return(
             <div>
+                <MessageList />
                 <h3>Login Area</h3>
                 <div className="content-wrapper">
                     <LoginForm login={login} />

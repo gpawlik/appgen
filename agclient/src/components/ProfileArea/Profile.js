@@ -6,7 +6,7 @@ class Profile extends React.Component {
         const { username, email, createdAt } = this.props.user;
         const timeCreated = moment(createdAt).fromNow();        
         return (
-            <div className="UserProfile">
+            <div className="UserProfile">            
                 <h3>User Profile</h3>
                 <div className="content-wrapper">
                     <span className="profile-thumbnail"></span>

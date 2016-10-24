@@ -3,12 +3,14 @@ import SignupForm from './SignupForm';
 import { connect } from 'react-redux';
 import { userSignupRequest, isUserExists } from '../../actions/signup';
 import { addFlashMessage } from '../../actions/flash';
+import MessageList from './../MessageArea/MessageList';
 
 class SignupPage extends React.Component {
     render() {
         const { userSignupRequest, isUserExists, addFlashMessage } = this.props;
         return(
             <div>
+                <MessageList />
                 <h3>SignUp Area</h3>
                 <div className="content-wrapper">
                     <SignupForm 

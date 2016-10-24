@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Profile from './Profile';
 import Preloader from '../../common/Preloader';
 import { getUser } from '../../actions/userActions';
+import MessageList from './../MessageArea/MessageList';
 
 class ProfileContainer extends React.Component {
     
@@ -34,6 +35,7 @@ class ProfileContainer extends React.Component {
         return (
             <div>
                 {this.state.isLoading && <Preloader />}
+                <MessageList />
                 <Profile user={this.props.user} />
             </div>            
         )

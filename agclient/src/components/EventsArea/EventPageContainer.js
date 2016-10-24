@@ -22,7 +22,7 @@ class EventPageContainer extends React.Component {
     render() {        
         return (
             <div>
-                {this.state.isLoading && <Preloader />}
+                {this.state.isLoading && <Preloader />}                
                 <EventPage event={this.props.event} />
             </div>            
         )

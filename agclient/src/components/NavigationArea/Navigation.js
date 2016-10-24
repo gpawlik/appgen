@@ -33,9 +33,8 @@ class NavigationBar extends React.Component {
             (<li key="1"><Link to="/signup">Signup</Link></li>)
         ];
         
-        const adminLinks = [
-            (<li key="0"><Link to="/users">Users</Link></li>),
-            (<li key="1"><Link to="/new-event">New event</Link></li>)
+        const adminLinks = [            
+            (<li key="0"><Link to="/new-event">New event</Link></li>)
         ];
         
         const navClassName = classNames('MainNav', {'isMobile': isMobileNavigationOpen});
@@ -43,7 +42,8 @@ class NavigationBar extends React.Component {
         return (
             <nav className={navClassName} onClick={this.toggleNavigation.bind(this, false)}>
                 <ul className="MainLinks">
-                    <li><Link to="/">Events</Link></li>                                                   
+                    <li><Link to="/">Events</Link></li>  
+                    <li><Link to="/users">Users</Link></li>                                                 
                     <li><Link to="/about">About</Link></li>
                     { user.isAdmin ? adminLinks : '' }                                        
                 </ul>                

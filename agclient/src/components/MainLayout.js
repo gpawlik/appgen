@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './HeaderArea/Header';
 import Navigation from './NavigationArea/Navigation';
-import MessageList from './MessageArea/MessageList';
 import Footer from './FooterArea/Footer';
 
 class MainLayout extends React.Component {   
@@ -10,8 +9,7 @@ class MainLayout extends React.Component {
             <div className="MainLayout">
                 <Header />
                 <Navigation />
-                <main className="MainContent">
-                    <MessageList />
+                <main className="MainContent">                    
                     {this.props.children}
                 </main>
                 <Footer />

@@ -1,9 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
 import MessageItem from './MessageItem';
-import { deleteFlashMessage } from '../../actions/flash';
+import { deleteFlashMessage, cleanFlashMessages } from '../../actions/flash';
 
-class MessageList extends React.Component {
+class MessageList extends React.Component {       
+
+    componentWillUnmount() {
+        if(this.props.messages.length) {
+            this.props.cleanFlashMessages();     
+        }              
+    }
+
     render() {
         const { messages, deleteFlashMessage } = this.props;
         const items = messages.map((item) => {
@@ -26,4 +33,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, { deleteFlashMessage })(MessageList);
+export default connect(mapStateToProps, { deleteFlashMessage, cleanFlashMessages })(MessageList);

@@ -21,8 +21,8 @@ class UsersContainer extends React.Component {
 
     render() {         
         return (
-            <div>
-                {this.state.isLoading && <Preloader />}
+            <div>            
+                {this.state.isLoading && <Preloader />}                
                 <UsersList 
                     users={this.props.users}
                     deleteUser={this.props.deleteUser}             

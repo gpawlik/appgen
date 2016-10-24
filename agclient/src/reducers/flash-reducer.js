@@ -1,5 +1,5 @@
 import shortid from 'shortid';
-import { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE } from '../actions/types';
+import { ADD_FLASH_MESSAGE, DELETE_FLASH_MESSAGE, CLEAN_FLASH_MESSAGES } from '../actions/types';
 import findIndex from 'lodash/findIndex';
 
 export default (state = [], action) => {
@@ -27,6 +27,10 @@ export default (state = [], action) => {
                 ]                
             }
             break;
-        default: return state;
-    }    
+        case CLEAN_FLASH_MESSAGES:
+            return [];
+        default: 
+            return state;
+    } 
+    return state;   
 }
