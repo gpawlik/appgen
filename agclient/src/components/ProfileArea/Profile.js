@@ -9,19 +9,24 @@ class Profile extends React.Component {
             <div className="UserProfile">            
                 <h3>User Profile</h3>
                 <div className="content-wrapper">
-                    <span className="profile-thumbnail"></span>
-                    <p>
-                        <span className="profile-label">Name</span> 
-                        {username}
-                    </p>
-                    <p>
-                        <span className="profile-label">Email</span> 
-                        {email}
-                    </p>
-                    <p>
-                        <span className="profile-label">Created</span> 
-                        {timeCreated}
-                    </p>                   
+                    <div className="profile-card">
+                        <div className="profile-top">
+                            <span className="profile-thumbnail"></span>
+                        </div>
+                        <div className="profile-content">
+                            <p className="profile-title">
+                                {username}
+                            </p>
+                            <p>
+                                <span className="profile-label">Email</span> 
+                                {email}
+                            </p>
+                            <p>
+                                <span className="profile-label">Created</span> 
+                                {timeCreated}
+                            </p>                      
+                        </div>                                            
+                    </div>                                     
                 </div>
             </div>
         )        

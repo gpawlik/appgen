@@ -23,7 +23,7 @@ export default (
     <Route path="/" component={EventsContainer} />
     <Route path="/event/:eventId" component={EventPageContainer} />  
     <Route path="/users" component={UsersContainer} />
-    <Route path="/user/:userId" component={requireAuth(ProfileContainer)} />
+    <Route path="/user/:userId" component={ProfileContainer} />
     <Route path="/new-event" component={requireAdmin(NewEventPage)} />               
     <Route path="/about" component={About} />    
     <Route path="/login" component={Login} />
