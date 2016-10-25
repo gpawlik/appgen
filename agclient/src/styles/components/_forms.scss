@@ -13,11 +13,15 @@
         color: $primary-dark;
     }
 }
-.form-input {
+.form-input,
+.form-textarea {
     width: 100%;
     padding: 10px 10px;
     border-radius: 3px;
     border: 1px solid $secondary-light;
+}
+.form-textarea {
+    min-height: 200px;
 }
 .form-error-label {
     font-size: 0.8em;

@@ -61,4 +61,23 @@ router.delete('/:eventId', adminRestricted, function(req, res) {
 
 });
 
+// Update the event with the specific id
+// TODO: organize it more cleverly
+router.put('/:event_id', adminRestricted, function(req, res) {
+    Event.findById(req.params.event_id)
+        .then(event => {
+            event.title = req.body.title;
+            event.headline = req.body.headline;
+            event.description = req.body.description;
+            event.createdAt = req.body.createdAt;
+            event.save(function(err, event) {
+                if (err) res.send(err);	            		
+                res.json({ message: 'Event updated!', event: event });
+            });
+        })
+        .catch(err => {
+            res.send(err); 
+        });    
+});
+
 export default router;

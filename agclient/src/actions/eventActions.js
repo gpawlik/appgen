@@ -31,6 +31,18 @@ export function createEvent(data) {
     }
 }
 
+export function editEvent(data) {
+    return dispatch => {
+        return axios.put('/api/events/' + data.id, data)
+            .then(res => {                
+                dispatch({
+                    type: types.EDIT_EVENT_SUCCESS,
+                    data
+                }); 
+            }); 
+    }
+}
+
 export function deleteEvent(eventId) {
     return dispatch => {
         return axios.delete('/api/events/' + eventId)

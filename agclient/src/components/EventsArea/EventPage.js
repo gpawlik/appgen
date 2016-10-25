@@ -15,7 +15,7 @@ class EventPage extends React.Component {
         );       
         return (
             <div className="EventProfile">
-                <h3>Event Profile {this.props.isAdmin && 'hello admin!'}</h3>
+                <h3>Event Profile</h3>
                 <div className="profile-image"></div>
                 <div className="content-wrapper">
                     <p>

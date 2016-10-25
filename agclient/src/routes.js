@@ -14,6 +14,7 @@ import EventPageContainer from './components/EventsArea/EventPageContainer';
 import ProfileContainer from './components/ProfileArea/ProfileContainer';
 import SignupContainer from './components/SignupArea/SignupContainer';
 import NewEventPage from './components/EventsArea/NewEventPage';
+import EditEventPage from './components/EventsArea/EditEventPage';
 import ErrorPage from './components/ErrorArea/ErrorPage';
 import About from './components/AboutArea/About';
 import Login from './components/LoginArea/Login';
@@ -21,7 +22,8 @@ import Login from './components/LoginArea/Login';
 export default (
   <Route component={MainLayout}>
     <Route path="/" component={EventsContainer} />
-    <Route path="/event/:eventId" component={EventPageContainer} />  
+    <Route path="/event/:eventId" component={EventPageContainer} />
+    <Route path="/event/edit/:eventId" component={EditEventPage} />    
     <Route path="/users" component={UsersContainer} />
     <Route path="/user/:userId" component={ProfileContainer} />
     <Route path="/new-event" component={requireAdmin(NewEventPage)} />               
