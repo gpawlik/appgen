@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TextFieldGroup from '../../common/TextFieldGroup';
-import TextAreaGroup from '../../common/TextAreaGroup';
 import { getEvent, editEvent } from '../../actions/eventActions';
 import { addFlashMessage } from '../../actions/flash';
+import EventForm from './EventForm';
 
 class EditEventPage extends React.Component {
     
     constructor(props) {
         super(props);
-        this.state= {
+        this.state = {
             id: props.params.eventId,
             title: '',
             headline: '',
@@ -56,57 +55,25 @@ class EditEventPage extends React.Component {
                 this.context.router.push('/')
             })
             .catch(
-                (err) => {this.setState({ errors: err.response.data, isFormLoading: false })}
+                (err) => {
+                    this.setState({ 
+                        errors: err.response.data, 
+                        isFormLoading: false 
+                    })
+                }
             );
     }
     
     render () {
-        const { title, headline, description, eventDate, errors, isFormLoading } = this.state;                
-        /*const title = this.state.title || this.props.event.title;
-        const headline = this.state.headline || this.props.event.headline;
-        const description = this.state.description || this.props.event.description;
-        const eventDate = this.state.eventDate || this.props.event.eventDate;*/
-        
-        return (
-            <div>                
+        return (  
+            <div className="content-wrapper">             
                 <h3>Edit Event</h3>
-                <form onSubmit={this.onSubmit} className="form-box">                                
-                    <div className="content-wrapper">
-                        <TextFieldGroup 
-                            field="title"
-                            label="Event title"
-                            value={title}
-                            error={errors.title}
-                            onChange={this.onChange}
-                        />
-                        
-                        <TextFieldGroup 
-                            field="headline"
-                            label="Event headline"
-                            value={headline}
-                            error={errors.headline}
-                            onChange={this.onChange}
-                        />
-                        
-                        <TextAreaGroup 
-                            field="description"
-                            label="Event description"
-                            value={description} 
-                            error={errors.description}
-                            onChange={this.onChange}
-                        />
-                        
-                        <TextFieldGroup 
-                            field="eventDate"
-                            label="Event date"
-                            value={eventDate}
-                            error={errors.eventDate}
-                            onChange={this.onChange}
-                        />
-                        
-                        <button type="submit" disabled={isFormLoading} className="button-primary">Edit event</button>                
-                    </div>
-                </form>
+                <EventForm 
+                    onSubmit={this.onSubmit}
+                    onChange={this.onChange}
+                    buttonText="Edit event"
+                    {...this.state}
+                />
             </div>
         );
     }

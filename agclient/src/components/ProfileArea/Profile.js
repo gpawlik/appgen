@@ -7,8 +7,8 @@ class Profile extends React.Component {
         const timeCreated = moment(createdAt).fromNow();        
         return (
             <div className="UserProfile">            
-                <h3>User Profile</h3>
                 <div className="content-wrapper">
+                    <h3>User Profile</h3>                
                     <div className="profile-card">
                         <div className="profile-top">
                             <span className="profile-thumbnail"></span>

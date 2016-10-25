@@ -34,7 +34,7 @@ class NavigationBar extends React.Component {
         ];
         
         const adminLinks = [            
-            (<li key="0"><Link to="/new-event">New event</Link></li>)
+            (<li key="0"><Link to="/create-event">New event</Link></li>)
         ];
         
         const navClassName = classNames('MainNav', {'isMobile': isMobileNavigationOpen});

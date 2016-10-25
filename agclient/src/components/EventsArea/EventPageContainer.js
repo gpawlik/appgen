@@ -11,6 +11,7 @@ class EventPageContainer extends React.Component {
         this.state = {
             isLoading: true
         }
+        this.deleteEvent = this.deleteEvent.bind(this);
     }       
     
     componentDidMount() {
@@ -21,15 +22,20 @@ class EventPageContainer extends React.Component {
             this.context.router.push('/404');
         });
     }
+    
+    deleteEvent(eventId) {
+        this.props.deleteEvent(eventId).then(res => {            
+            this.context.router.push('/');
+        });
+    }
 
-    render() {     
-        const { event, deleteEvent } = this.props;   
+    render() {              
         return (
             <div>
                 {this.state.isLoading && <Preloader />}                
                 <EventPage 
-                    event={event}
-                    deleteEvent={deleteEvent}
+                    event={this.props.event}
+                    deleteEvent={this.deleteEvent}
                     isAdmin={this.props.auth.user.isAdmin} />
             </div>            
         )

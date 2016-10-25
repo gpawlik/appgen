@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router';
 
-import requireAuth from './utils/requireAuth';
+//import requireAuth from './utils/requireAuth';
 import requireAdmin from './utils/requireAdmin';
 
 // Layouts
@@ -13,7 +13,7 @@ import EventsContainer from './components/EventsArea/EventsContainer';
 import EventPageContainer from './components/EventsArea/EventPageContainer';
 import ProfileContainer from './components/ProfileArea/ProfileContainer';
 import SignupContainer from './components/SignupArea/SignupContainer';
-import NewEventPage from './components/EventsArea/NewEventPage';
+import CreateEventPage from './components/EventsArea/CreateEventPage';
 import EditEventPage from './components/EventsArea/EditEventPage';
 import ErrorPage from './components/ErrorArea/ErrorPage';
 import About from './components/AboutArea/About';
@@ -23,10 +23,10 @@ export default (
   <Route component={MainLayout}>
     <Route path="/" component={EventsContainer} />
     <Route path="/event/:eventId" component={EventPageContainer} />
-    <Route path="/event/edit/:eventId" component={EditEventPage} />    
+    <Route path="/event/edit/:eventId" component={requireAdmin(EditEventPage)} />    
     <Route path="/users" component={UsersContainer} />
     <Route path="/user/:userId" component={ProfileContainer} />
-    <Route path="/new-event" component={requireAdmin(NewEventPage)} />               
+    <Route path="/create-event" component={requireAdmin(CreateEventPage)} />               
     <Route path="/about" component={About} />    
     <Route path="/login" component={Login} />
     <Route path="/signup" component={SignupContainer} />
