@@ -1,9 +1,10 @@
 import React from 'react';
 import TextFieldGroup from '../../common/TextFieldGroup';
 import TextAreaGroup from '../../common/TextAreaGroup';
+import moment from 'moment';
 
-class EventForm extends React.Component {
-    render() {
+class EventForm extends React.Component {    
+    render() {                   
         const { title, headline, description, eventDate, errors, onChange, onSubmit, isFormLoading, buttonText } = this.props;
         return (
             <form onSubmit={onSubmit} className="form-box">                                                    
@@ -34,9 +35,10 @@ class EventForm extends React.Component {
                 <TextFieldGroup 
                     field="eventDate"
                     label="Event date"
-                    value={eventDate}
+                    value={moment(eventDate).format('YYYY/MM/DD')}
                     error={errors.eventDate}
                     onChange={onChange}
+                    placeholder="YYYY/MM/DD"
                 />
                 
                 <button type="submit" disabled={isFormLoading} className="button-primary">{buttonText}</button>                    

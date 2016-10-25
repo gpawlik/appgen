@@ -69,10 +69,11 @@ router.put('/:event_id', adminRestricted, function(req, res) {
             event.title = req.body.title;
             event.headline = req.body.headline;
             event.description = req.body.description;
-            event.createdAt = req.body.createdAt;
-            event.save(function(err, event) {
-                if (err) res.send(err);	            		
+            event.eventDate = new Date(req.body.eventDate);
+            event.save().then(event => {
                 res.json({ message: 'Event updated!', event: event });
+            }).catch(err => {
+                res.status(500).json({ message: 'Database error:', err })
             });
         })
         .catch(err => {
