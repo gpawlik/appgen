@@ -3,7 +3,10 @@ import { Link } from 'react-router';
 
 class EventsList extends React.Component {    
     render() {   
-        const { events } = this.props;                            
+        const { events, showCreateLink } = this.props; 
+        const createEventLink = (
+            <Link to="/create-event" className="button-secondary">Create new event</Link>
+        );                                   
         return (
             <div className="EventsListArea">
                 <h3>Events list</h3>                
@@ -18,7 +21,10 @@ class EventsList extends React.Component {
                             </li>
                         );
                     })}
-                </ul>                
+                </ul>
+                <div className="content-wrapper">
+                    {showCreateLink && createEventLink}
+                </div>                                
             </div>
         )
     }

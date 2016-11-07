@@ -31,11 +31,7 @@ class NavigationBar extends React.Component {
         const guestLinks = [
             (<li key="0"><Link to="/login">Login</Link></li>),
             (<li key="1"><Link to="/signup">Signup</Link></li>)
-        ];
-        
-        const adminLinks = [            
-            (<li key="0"><Link to="/create-event">New event</Link></li>)
-        ];
+        ];        
         
         const navClassName = classNames('MainNav', {'isMobile': isMobileNavigationOpen});
         
@@ -44,8 +40,7 @@ class NavigationBar extends React.Component {
                 <ul className="MainLinks">
                     <li><Link to="/">Events</Link></li>  
                     <li><Link to="/users">Users</Link></li>                                                 
-                    <li><Link to="/about">About</Link></li>
-                    { user.isAdmin && adminLinks }                                        
+                    <li><Link to="/about">About</Link></li>                                       
                 </ul>                
                 <ul className="AccountLinks">
                     { isAuthenticated ? userLinks : guestLinks } 

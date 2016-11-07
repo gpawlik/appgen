@@ -19,23 +19,27 @@ class EventsContainer extends React.Component {
         });
     }         
 
-    render() {      
+    render() {                              
         return (
             <div>
                 {this.state.isLoading && <Preloader />}                
-                <EventsList events={this.props.events} />
+                <EventsList 
+                    events={this.props.events} 
+                    showCreateLink={this.props.user.isAdmin} />
             </div>
         )
     }        
 };
 
 EventsContainer.propTypes = {
-    events: React.PropTypes.array.isRequired
+    events: React.PropTypes.array.isRequired,
+    user: React.PropTypes.object.isRequired
 }
 
 const mapStateToProps = function(store) {
     return {
-        events: store.eventsState.events
+        events: store.eventsState.events,
+        user: store.authState.user
     };
 };
 
