@@ -22,7 +22,7 @@ class EventsList extends React.Component {
                         );
                     })}
                 </ul>
-                <div className="content-wrapper">
+                <div className="full-content-wrapper">
                     {showCreateLink && createEventLink}
                 </div>                                
             </div>

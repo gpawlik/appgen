@@ -12,6 +12,7 @@ import UsersContainer from './components/UsersArea/UsersContainer';
 import EventsContainer from './components/EventsArea/EventsContainer';
 import EventPageContainer from './components/EventsArea/EventPageContainer';
 import ProfileContainer from './components/ProfileArea/ProfileContainer';
+import EditProfileContainer from './components/ProfileArea/EditProfileContainer';
 import SignupContainer from './components/SignupArea/SignupContainer';
 import CreateEventPage from './components/EventsArea/CreateEventPage';
 import EditEventPage from './components/EventsArea/EditEventPage';
@@ -26,6 +27,7 @@ export default (
     <Route path="/event/edit/:eventId" component={requireAdmin(EditEventPage)} />    
     <Route path="/users" component={UsersContainer} />
     <Route path="/user/:userId" component={ProfileContainer} />
+    <Route path="/user/edit/:userId" component={EditProfileContainer} />
     <Route path="/create-event" component={requireAdmin(CreateEventPage)} />               
     <Route path="/about" component={About} />    
     <Route path="/login" component={Login} />

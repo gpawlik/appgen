@@ -39,12 +39,11 @@ export function addUser() {
     }   
 };
 
-export function editUser(user) {
-    const newName = user.name + ' [edited]';      
-            
+export function editUser(user) {               
     return dispatch => {
-        return axios.put('/api/users/' + user._id, {
-                name: newName
+        return axios.put('/api/users/' + user.id, {
+                username: user.username,
+                email: user.email
             })
             .then(res => {                
                 dispatch({
