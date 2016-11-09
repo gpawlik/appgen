@@ -4,9 +4,9 @@ import MultiSelectGroup from '../../common/MultiSelectGroup';
 
 class EditProfileForm extends React.Component {
     render() {        
-        const { username, email, location, interests, errors, onChange } = this.props;
+        const { username, email, location, interests, errors, onChange, onSubmit } = this.props;
         return (
-            <form>
+            <form onSubmit={onSubmit}>
                 <TextFieldGroup 
                     field="username"
                     label="Username"

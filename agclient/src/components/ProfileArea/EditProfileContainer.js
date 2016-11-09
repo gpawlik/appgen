@@ -9,7 +9,7 @@ class EditProfileContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: props.params.userId,
+            id: '',
             username: '',
             email: '',
             location: '',
@@ -53,9 +53,9 @@ class EditProfileContainer extends React.Component {
     }
     
     componentWillReceiveProps(nextProps) {
-        const { username, email } = nextProps.user; 
+        const { _id, username, email } = nextProps.user; 
         this.setState({ 
-            username, email
+            id: _id, username, email
         }); 
     }
     

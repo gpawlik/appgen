@@ -1,9 +1,10 @@
 import React from 'react';
 import moment from 'moment';
+import { Link } from 'react-router'
 
 class Profile extends React.Component {    
     render () {
-        const { username, email, createdAt } = this.props.user;
+        const { _id, username, email, createdAt } = this.props.user;
         const timeCreated = moment(createdAt).fromNow();        
         return (
             <div className="UserProfile">            
@@ -26,7 +27,8 @@ class Profile extends React.Component {
                                 {timeCreated}
                             </p>                      
                         </div>                                            
-                    </div>                                     
+                    </div> 
+                    <Link to={'/user/edit/' + _id} className="button-secondary">Edit my profile</Link>                                    
                 </div>
             </div>
         )        

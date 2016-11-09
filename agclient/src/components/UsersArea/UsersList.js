@@ -11,7 +11,7 @@ class UsersList extends React.Component {
                 {users.map((user, idx) => {
                     return (
                         <li key={idx}>
-                            <Link to={'/user/' + user.username}>
+                            <Link to={'/user/' + user._id}>
                                 <span className="thumbnail-small"></span>
                                 <span className="user-item-title">{user.username}</span> 
                             </Link>                            

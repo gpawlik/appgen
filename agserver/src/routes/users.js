@@ -70,18 +70,18 @@ router.get('/', function(req, res) {
 // Get users by identifier
 router.get('/:identifier', function(req, res) {
     const identifier = req.params.identifier;
-    User.findOne({ $or: [{ username: identifier }, { email: identifier }] })
-        .select('username email isAdmin')
+    User.findOne({ $or: [{ _id: identifier }, { username: identifier }, { email: identifier }] })
+        .select('_id username email isAdmin')
         .then(user => {
             res.json({ user });
         })
 });
 
 // Update the user with the specific id
-router.put('/:user_id', adminRestricted, function(req, res) {
+router.put('/:user_id', function(req, res) { // TODO: restrict by self-user
     User.findById(req.params.user_id, function(err, user) {
         if (err) res.send(err);     			      
-        user.name = req.body.name;
+        user.username = req.body.username;
         user.save(function(err, user) {
             if (err) res.send(err);	
             console.log(user);			

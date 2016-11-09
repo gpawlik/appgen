@@ -25,7 +25,7 @@ class NavigationBar extends React.Component {
                 
         const userLinks = [
             (<li key="0"><a href="#" onClick={this.logout.bind(this)}>Logout</a></li>),
-            (<li key="1"><Link to={'/user/' + user.username}>My profile</Link></li>)
+            (<li key="1"><Link to={'/user/' + user.id}>My profile</Link></li>)
         ];
         
         const guestLinks = [
