@@ -43,7 +43,9 @@ export function editUser(user) {
     return dispatch => {
         return axios.put('/api/users/' + user.id, {
                 username: user.username,
-                email: user.email
+                email: user.email,
+                location: user.location,
+                interests: user.interests
             })
             .then(res => {                
                 dispatch({

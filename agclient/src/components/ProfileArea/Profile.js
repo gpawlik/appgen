@@ -4,8 +4,12 @@ import { Link } from 'react-router'
 
 class Profile extends React.Component {    
     render () {
-        const { _id, username, email, createdAt } = this.props.user;
-        const timeCreated = moment(createdAt).fromNow();        
+        const { _id, username, email, location, createdAt } = this.props.user;
+        const timeCreated = moment(createdAt).fromNow();    
+        
+        const emailField = (<p><span className="profile-label">Email</span>{email}</p>);
+        const locationField = (<p><span className="profile-label">Location</span>{location}</p>); 
+           
         return (
             <div className="UserProfile">            
                 <div className="content-wrapper">
@@ -15,17 +19,15 @@ class Profile extends React.Component {
                             <span className="profile-thumbnail"></span>
                         </div>
                         <div className="profile-content">
-                            <p className="profile-title">
-                                {username}
-                            </p>
-                            <p>
-                                <span className="profile-label">Email</span> 
-                                {email}
-                            </p>
-                            <p>
-                                <span className="profile-label">Created</span> 
-                                {timeCreated}
-                            </p>                      
+                        
+                            <p className="profile-title">{username}</p>
+                            
+                            {email && emailField}
+                            
+                            {location && locationField}
+                            
+                            <p><span className="profile-label">Created</span>{timeCreated}</p>  
+                                                
                         </div>                                            
                     </div> 
                     <Link to={'/user/edit/' + _id} className="button-secondary">Edit my profile</Link>                                    

@@ -71,7 +71,7 @@ router.get('/', function(req, res) {
 router.get('/:identifier', function(req, res) {
     const identifier = req.params.identifier;
     User.findOne({ $or: [{ _id: identifier }, { username: identifier }, { email: identifier }] })
-        .select('_id username email isAdmin')
+        .select('_id username email location isAdmin')
         .then(user => {
             res.json({ user });
         })
@@ -80,8 +80,11 @@ router.get('/:identifier', function(req, res) {
 // Update the user with the specific id
 router.put('/:user_id', function(req, res) { // TODO: restrict by self-user
     User.findById(req.params.user_id, function(err, user) {
-        if (err) res.send(err);     			      
+        if (err) res.send(err);   			      
         user.username = req.body.username;
+        user.email = req.body.email;
+        user.location = req.body.location;
+        user.interests = req.body.interests;
         user.save(function(err, user) {
             if (err) res.send(err);	
             console.log(user);			
