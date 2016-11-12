@@ -9,11 +9,13 @@ class EditProfileContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: '',
-            username: '',
-            email: '',
-            location: '',
-            interests: [],
+            user: {
+                id: '',
+                username: '',
+                email: '',
+                location: '',
+                interests: []                
+            },
             errors: {},
             isFormLoading: false,
             isLoading: true
@@ -21,6 +23,7 @@ class EditProfileContainer extends React.Component {
         
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.onSelectInterest = this.onSelectInterest.bind(this);
     } 
     
     onChange (e) {        
@@ -46,16 +49,20 @@ class EditProfileContainer extends React.Component {
                     })
                 }
             );
-    }      
+    }   
+    
+    onSelectInterest(id) {
+        console.log('interest selected', id);
+    }   
     
     componentDidMount() {        
         this.fetchUserData(this.props.params.userId);
     }
     
     componentWillReceiveProps(nextProps) {
-        const { _id, username, email, location } = nextProps.user; 
+        const { _id, username, email, location, interests } = nextProps.user; 
         this.setState({ 
-            id: _id, username, email, location
+            user: { id: _id, username, email, location, interests }
         }); 
     }
     
@@ -72,6 +79,7 @@ class EditProfileContainer extends React.Component {
                 <EditProfileForm 
                     onChange={this.onChange}
                     onSubmit={this.onSubmit} 
+                    onSelectInterest={this.onSelectInterest}
                     {...this.state} />
             </div>            
         );
