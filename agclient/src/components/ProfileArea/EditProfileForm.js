@@ -8,7 +8,6 @@ import shortid from 'shortid';
 class EditProfileForm extends React.Component {
     render() {        
         const { user, errors, onChange, onSelectInterest, onSubmit } = this.props;
-        const opts = ['interest2','interest5']
         return (
             <form onSubmit={onSubmit}>
                 <TextFieldGroup 
@@ -35,11 +34,10 @@ class EditProfileForm extends React.Component {
                 <MultiSelectGroup 
                     field="interests"
                     label="Interests"
-                    selected={opts}
                     options={interestList}                    
                     error={errors.interests}>
                     {interestList.map(interest => {
-                        const selected = opts.indexOf(interest.id) !== -1;                        
+                        const selected = user.interests ? user.interests.indexOf(interest.id) !== -1 : false;                        
                         return <MultiSelectGroupItem 
                             key={shortid.generate()}
                             selected={selected}

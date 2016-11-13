@@ -32,14 +32,14 @@ class EditProfileContainer extends React.Component {
     
     onSubmit(e) {
         e.preventDefault();
-        this.props.editUser(this.state)
+        this.props.editUser(this.state.user)
             .then(() => {
                 this.props.addFlashMessage({
                     type: 'success',
                     text: 'User succesfully edited!',
                     category: 'user_edited'
                 });
-                this.context.router.push('/users')
+                this.context.router.push('/user/' + this.state.user.id)
             })
             .catch(
                 (err) => {
@@ -51,9 +51,24 @@ class EditProfileContainer extends React.Component {
             );
     }   
     
-    onSelectInterest(id) {
-        console.log('interest selected', id);
+    onSelectInterest(id) { 
+        this.setState({
+            user: { ...this.state.user, interests: this.toggleInterests(id) }
+        })
     }   
+    
+    toggleInterests(interestId) {
+        const currentInterests = this.state.user.interests;
+        const newInterests = currentInterests ? currentInterests.slice() : [];
+        const existingIndex = newInterests.indexOf(interestId);
+        if(existingIndex !== -1) {
+            newInterests.splice(existingIndex, 1);
+        }
+        else {
+            newInterests.push(interestId);
+        }
+        return newInterests;
+    }
     
     componentDidMount() {        
         this.fetchUserData(this.props.params.userId);

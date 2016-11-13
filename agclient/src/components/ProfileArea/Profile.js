@@ -1,10 +1,11 @@
 import React from 'react';
 import moment from 'moment';
+import shortid from 'shortid';
 import { Link } from 'react-router'
 
 class Profile extends React.Component {    
     render () {
-        const { _id, username, email, location, createdAt } = this.props.user;
+        const { _id, username, email, location, interests, createdAt } = this.props.user;
         const timeCreated = moment(createdAt).fromNow();    
         
         const emailField = (<p><span className="profile-label">Email</span>{email}</p>);
@@ -25,6 +26,13 @@ class Profile extends React.Component {
                             {email && emailField}
                             
                             {location && locationField}
+                            
+                            <p><span className="profile-label">Interests</span></p>
+                            <ul className="profile-interests">
+                              {interests && interests.map((interest) => {
+                                  return <li key={shortid.generate()} className="button-label">{interest}</li>;
+                              })}
+                            </ul>
                             
                             <p><span className="profile-label">Created</span>{timeCreated}</p>  
                                                 

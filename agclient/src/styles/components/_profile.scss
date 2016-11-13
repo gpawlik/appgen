@@ -40,3 +40,12 @@
     display: block;
     font-size: 0.8em;
 }
+.profile-interests {
+    overflow: hidden;
+    display: table;
+    margin: 0 auto;
+    li {
+        float: left;
+        margin: 2px;    
+    }    
+}
