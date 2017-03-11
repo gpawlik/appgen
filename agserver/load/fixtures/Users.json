@@ -1,0 +1,35 @@
+{
+  "results": [{
+    "firstName": "John",
+    "lastName": "Smith",
+    "username": "johnsmith",
+    "email": "john.smith@gmail.com",
+    "password": "123456",
+    "interests": [],
+    "isAdmin": true
+  }, {
+    "firstName": "Marta",
+    "lastName": "Soler",
+    "username": "martasoler",
+    "email": "marta.soler@gmail.com",
+    "password": "123456",
+    "interests": [],
+    "isAdmin": false
+  }, {
+    "firstName": "Giuseppe",
+    "lastName": "Cerci",
+    "username": "giuseppecerci",
+    "email": "giucer99@gmail.com",
+    "password": "123456",
+    "interests": [],
+    "isAdmin": false
+  }, {
+    "firstName": "Omar",
+    "lastName": "Hosseini",
+    "username": "omar19",
+    "email": "omar19@gmail.com",
+    "password": "123456",
+    "interests": [],
+    "isAdmin": false
+  }]
+}

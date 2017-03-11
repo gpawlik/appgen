@@ -1,0 +1,13 @@
+{
+  "results": [{
+    "title": "Event name A",
+    "headline": "This is an awesome event!",
+    "description": "Lorem ipsum dolor sin amet...",
+    "eventDate": "2017-03-10T02:00:00Z"
+  }, {
+    "title": "Event name B",
+    "headline": "This is another awesome event!",
+    "description": "Lorem ipsum dolor sin amet olor sin omet...",
+    "eventDate": "2017-06-10T01:00:00Z"
+  }]
+}

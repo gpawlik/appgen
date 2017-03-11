@@ -8,9 +8,9 @@ const UserSchema = new Schema({
 	location: String,
 	interests: Array,
 	createdAt: Date,
-	updatedAt: { 
-		type: Date, 
-		default: Date.now 
+	updatedAt: {
+		type: Date,
+		default: Date.now
 	},
 	isAdmin: Boolean
 });
