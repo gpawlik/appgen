@@ -30,53 +30,60 @@ router.post('/', adminRestricted, function (req, res) {
 });
 
 router.get('/', (req, res) => {
-  Event.find().limit(20).sort({ createdAt: 1 }).exec(function (err, events) {
-    if (err) res.send(err);
-    //setTimeout(() => res.json(events), 2000)
-    res.json(events);
-  });
+  Event
+    .find()
+    .limit(20)
+    .sort({ createdAt: 1 })
+    .exec(function (err, events) {
+      if (err) res.send(err);
+      //setTimeout(() => res.json(events), 2000)
+      res.json(events);
+    });
 });
 
 router.get('/:eventId', function (req, res) {
-  if(req.params.eventId !== 'undefined') {
+  if(req.params.eventId === 'undefined') {
+    res.status(404).json({ message: 'Wrong event Id provided.' });
+  } else {
     Event.findById(req.params.eventId)
       .then(event => res.json(event))
       .catch(err => res.status(404).json({ message: 'Error occured:', err }));
-  } else {
-    res.status(404).json({ message: 'Wrong event Id provided.' });
   }
 });
 
 router.delete('/:eventId', adminRestricted, function (req, res) {
-  if(req.params.eventId !== 'undefined') {
+  if(req.params.eventId === 'undefined') {
+    res.status(404).json({ message: 'Wrong event Id provided.' });
+  } else {
     Event.remove({ _id: req.params.eventId })
       .then(() => res.json({ message: 'Successfully deleted' }))
       .catch(err => res.status(404).json({ message: 'Error occured:', err }));
-  } else {
-    res.status(404).json({ message: 'Wrong event Id provided.' });
   }
 });
 
 // Update the event with the specific id
 // TODO: organize it more cleverly
 router.put('/:event_id', adminRestricted, function (req, res) {
-  Event.findById(req.params.event_id)
-  .then(event => {
-    event.title = req.body.title;
-    event.headline = req.body.headline;
-    event.description = req.body.description;
-    event.eventDate = new Date(req.body.eventDate);
-    event.save()
-      .then(() => {
-        res.json({ message: 'Event updated!', event: event });
-      })
-      .catch(err => {
-        res.status(500).json({ message: 'Database error:', err });
-      });
-  })
-  .catch(err => {
-    res.send(err);
-  });
+  const { title, headline, description, eventDate } = req.body;
+
+  Event
+    .findById(req.params.event_id)
+    .then(event => {
+      event.title = title;
+      event.headline = headline;
+      event.description = description;
+      event.eventDate = new Date(eventDate);
+      event.save()
+        .then(() => {
+          res.json({ message: 'Event updated!', event });
+        })
+        .catch(err => {
+          res.status(500).json({ message: 'Database error:', err });
+        });
+    })
+    .catch(err => {
+      res.send(err);
+    });
 });
 
 export default router;

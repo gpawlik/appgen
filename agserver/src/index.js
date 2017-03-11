@@ -33,7 +33,6 @@ mongoose.connection.on('error', err => {
 
 try {
 	mongoose.connect('mongodb://' + db_address);
-	const db = mongoose.connection;
 
 	console.log('Started connection on ' + ('mongodb://' + db_address) + ', waiting for it to open...');
 } catch (err) {

@@ -10,97 +10,116 @@ let router = express.Router();
 
 // Validate if the username or email already exist
 function validateInput(data, otherValidations) {
-        
-    let { errors } = otherValidations(data);
-    
-    return User.findOne({ $or: [{ username: data.username }, { email: data.email }] })
-        .then(user => {            
-            if (user) {
-                if (data.username === user.username) {
-                    errors.username = 'Username already exists';
-                }
-                if (data.email === user.email) {
-                    errors.email = 'Email already exists';
-                }                
-            }
-            return {
-                errors,
-                isValid: isEmpty(errors)
-            }
-        });
+  let { errors } = otherValidations(data);
+
+  return User
+    .findOne({ $or: [{ username: data.username }, { email: data.email }] })
+    .then(user => {
+      if (user) {
+        if (data.username === user.username) {
+          errors.username = 'Username already exists';
+        }
+        if (data.email === user.email) {
+          errors.email = 'Email already exists';
+        }
+      }
+      return {
+        errors,
+        isValid: isEmpty(errors)
+      };
+    });
 }
 
 // Create a user
-router.post('/', function(req, res) {				
-		
-    validateInput(req.body, signupValidations).then(({ errors, isValid }) => {        
-        if (isValid) {
-            const { username, email, password } = req.body;   
-            const password_hash = bcrypt.hashSync(password, 10);     
-            const newUser = new User({
-                username: username,
-                email: email,
-                password: password_hash,  
-                createdAt: Date.now()                
-            });
-            
-            newUser.save()
-                .then(user => res.json({ message: 'User created!', user: user }))
-                .catch(err => res.status(500).json({ error: err }));	        
-        }
-        else {
-            res.status(400).json(errors);
-        }        
-    });   
-        	
+router.post('/', (req, res) => {
+  validateInput(req.body, signupValidations).then(({ errors, isValid }) => {
+    if (isValid) {
+      const { username, email, password } = req.body;
+      const password_hash = bcrypt.hashSync(password, 10);
+      const newUser = new User({
+        username,
+        email,
+        password: password_hash,
+        createdAt: Date.now()
+      });
+
+      newUser
+        .save()
+        .then(user => res.json({ message: 'User created!', user }))
+        .catch(error => res.status(500).json({ error }));
+    } else {
+    res.status(400).json(errors);
+    }
+  });
 });
 
 // Get all the users
-router.get('/', function(req, res) {
-    User.find()
-        .limit(20)
-        .sort({ createdAt: 1 })
-        .select('username email createdAt')
-        .exec(function(err, users) {
-            if (err) res.send(err);            
-            res.json(users);
-        });
+router.get('/', function (req, res) {
+  User
+    .find()
+    .limit(20)
+    .sort({ createdAt: 1 })
+    .select('username email createdAt')
+    .exec((err, users) => {
+      if (err) {
+        res.send(err);
+      }
+      res.json(users);
+    });
 });
 
 // Get users by identifier
-router.get('/:identifier', function(req, res) {
-    const identifier = req.params.identifier;
-    User.findOne({ $or: [{ _id: identifier }, { username: identifier }, { email: identifier }] })
-        .select('_id username email location interests isAdmin')
-        .then(user => {
-            res.json({ user });
-        })
+router.get('/:identifier', function (req, res) {
+  const identifier = req.params.identifier;
+
+  User
+    .findOne({
+      $or: [
+        { _id: identifier },
+        { username: identifier },
+        { email: identifier }
+      ]
+    })
+    .select('_id username email location interests isAdmin')
+    .then(user => {
+      res.json({ user });
+    });
 });
 
 // Update the user with the specific id
-router.put('/:user_id', function(req, res) { // TODO: restrict by self-user
-    User.findById(req.params.user_id, function(err, user) {
-        if (err) res.send(err);   			      
-        user.username = req.body.username;
-        user.email = req.body.email;
-        user.location = req.body.location;
-        user.interests = req.body.interests;
-        user.save(function(err, user) {
-            if (err) res.send(err);	
-            console.log(user);			
-            res.json({ message: 'User updated!', user: user });
-        });
+// TODO: restrict by self-user
+router.put('/:user_id', (req, res) => {
+  User.findById(req.params.user_id, (err, user) => {
+    const { username, email, location, interests } = req.body;
+
+    if (err) {
+      res.send(err);
+    }
+    user.username = username;
+    user.email = email;
+    user.location = location;
+    user.interests = interests;
+
+    user.save((saveErr, savedUser) => {
+      if (saveErr) {
+        res.send(saveErr);
+      }
+      console.log(user);
+      res.json({ message: 'User updated!', user: savedUser });
     });
+  });
 });
 
 // Delete the user with the specific id
-router.delete('/:user_id', adminRestricted, function(req, res) {
-    User.remove({
-        _id: req.params.user_id
-    }, function(err, user) {
-        if (err) res.send(err);
-        res.json({ message: 'Successfully deleted' });
-    });
+router.delete('/:user_id', adminRestricted, (req, res) => {
+  User.remove({
+    _id: req.params.user_id
+  }, (err, user) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json({ message: 'Successfully deleted', user });
+  });
 });
 
 export default router;
