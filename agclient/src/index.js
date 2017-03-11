@@ -11,13 +11,13 @@ import './styles/App.scss';
 
 // Set token after page reload
 if(localStorage.jwtToken) {
-    setAuthorizationToken(localStorage.jwtToken); 
-    store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken))); 
+  setAuthorizationToken(localStorage.jwtToken);
+  store.dispatch(setCurrentUser(jwtDecode(localStorage.jwtToken)));
 }
 
 ReactDOM.render(
-	<Provider store={store}>
-        <Router history={browserHistory} routes={routes} />
-    </Provider>,
-	document.getElementById('root')
+  <Provider store={store}>
+    <Router history={browserHistory} routes={routes} />
+  </Provider>,
+  document.getElementById('root')
 );

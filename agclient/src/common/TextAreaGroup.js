@@ -11,16 +11,17 @@ const TextAreaGroup = ({ field, value, label, error, onChange }) => {
         name={field}
         className="form-textarea"
       ></textarea>
-    {error && <span className="form-error-label">{error}</span>}
-    </div>  );
-}
+      {error && <span className="form-error-label">{error}</span>}
+    </div>
+  );
+};
 
 TextAreaGroup.propTypes = {
   field: React.PropTypes.string.isRequired,
   value: React.PropTypes.string.isRequired,
   label: React.PropTypes.string.isRequired,
-  error: React.PropTypes.string,  
+  error: React.PropTypes.string,
   onChange: React.PropTypes.func.isRequired
-}
+};
 
 export default TextAreaGroup;

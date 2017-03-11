@@ -24,12 +24,12 @@ export default (
   <Route component={MainLayout}>
     <Route path="/" component={EventsContainer} />
     <Route path="/event/:eventId" component={EventPageContainer} />
-    <Route path="/event/edit/:eventId" component={requireAdmin(EditEventPage)} />    
+    <Route path="/event/edit/:eventId" component={requireAdmin(EditEventPage)} />
     <Route path="/users" component={UsersContainer} />
     <Route path="/user/:userId" component={ProfileContainer} />
     <Route path="/user/edit/:userId" component={EditProfileContainer} />
-    <Route path="/create-event" component={requireAdmin(CreateEventPage)} />               
-    <Route path="/about" component={About} />    
+    <Route path="/create-event" component={requireAdmin(CreateEventPage)} />
+    <Route path="/about" component={About} />
     <Route path="/login" component={Login} />
     <Route path="/signup" component={SignupContainer} />
     <Route path="/404" component={ErrorPage} />

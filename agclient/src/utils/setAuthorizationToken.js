@@ -1,10 +1,11 @@
 import axios from 'axios';
 
 export default function setAuthorizationToken(token) {
-    if(token) { // Add header to every request
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`; // Standars naming
-    }
-    else {
-        delete axios.defaults.headers.common['Authorization'];
-    }
+  // Add header to every request
+  if(token) {
+    // Bearer - Standard naming
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  } else {
+    delete axios.defaults.headers.common['Authorization'];
+  }
 }

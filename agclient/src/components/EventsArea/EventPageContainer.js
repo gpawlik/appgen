@@ -4,60 +4,62 @@ import EventPage from './EventPage';
 import Preloader from '../../common/Preloader';
 import { getEvent, deleteEvent } from '../../actions/eventActions';
 
-class EventPageContainer extends React.Component {   
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            isLoading: true
-        }
-        this.deleteEvent = this.deleteEvent.bind(this);
-    }       
-    
-    componentDidMount() {
-        this.props.getEvent(this.props.params.eventId).then(res => {            
-            this.setState({ isLoading: false });          
-        })
-        .catch(err => {
-            this.context.router.push('/404');
-        });
-    }
-    
-    deleteEvent(eventId) {
-        this.props.deleteEvent(eventId).then(res => {            
-            this.context.router.push('/');
-        });
-    }
+class EventPageContainer extends React.Component {
 
-    render() {              
-        return (
-            <div>
-                {this.state.isLoading && <Preloader />}                
-                <EventPage 
-                    event={this.props.event}
-                    deleteEvent={this.deleteEvent}
-                    isAdmin={this.props.auth.user.isAdmin} />
-            </div>            
-        )
-    }        
-};
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    };
+    this.deleteEvent = this.deleteEvent.bind(this);
+  }
 
-EventPageContainer.propTypes = {
-    event: React.PropTypes.object.isRequired,
-    getEvent: React.PropTypes.func.isRequired,
-    deleteEvent: React.PropTypes.func.isRequired,
-    auth: React.PropTypes.object.isRequired,
+  componentDidMount() {
+    this.props
+      .getEvent(this.props.params.eventId)
+      .then(() => {
+        this.setState({ isLoading: false });
+      })
+      .catch(() => {
+        this.context.router.push('/404');
+      });
+  }
+
+  deleteEvent(eventId) {
+    this.props.deleteEvent(eventId).then(() => {
+      this.context.router.push('/');
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.isLoading && <Preloader />}
+        <EventPage
+          event={this.props.event}
+          deleteEvent={this.deleteEvent}
+          isAdmin={this.props.auth.user.isAdmin} />
+      </div>
+    );
+  }
 }
 
-EventPageContainer.contextTypes = {
-    router: React.PropTypes.object.isRequired
+EventPageContainer.propTypes = {
+  event: React.PropTypes.object.isRequired,
+  getEvent: React.PropTypes.func.isRequired,
+  deleteEvent: React.PropTypes.func.isRequired,
+  auth: React.PropTypes.object.isRequired
 };
 
-const mapStateToProps = function(store) {
-    return {
-        event: store.eventState.event,
-        auth: store.authState
-    };
+EventPageContainer.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
+
+const mapStateToProps = store => {
+  return {
+    event: store.eventState.event,
+    auth: store.authState
+  };
 };
 
 export default connect(mapStateToProps, { getEvent, deleteEvent })(EventPageContainer);

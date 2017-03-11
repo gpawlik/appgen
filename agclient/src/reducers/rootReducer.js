@@ -10,14 +10,14 @@ import authReducer from './auth-reducer';
 import uiReducer from './ui-reducer';
 
 // Combine Reducers
-var rootReducer = combineReducers({
-    usersState: usersReducer,
-    profileState: profileReducer,
-    eventsState: eventsReducer,
-    eventState: eventReducer,    
-    flashState: flashReducer,
-    authState: authReducer,
-    uiState: uiReducer
+const rootReducer = combineReducers({
+  usersState: usersReducer,
+  profileState: profileReducer,
+  eventsState: eventsReducer,
+  eventState: eventReducer,
+  flashState: flashReducer,
+  authState: authReducer,
+  uiState: uiReducer
 });
 
 export default rootReducer;
