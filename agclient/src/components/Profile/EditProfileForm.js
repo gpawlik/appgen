@@ -1,9 +1,9 @@
 import React from 'react';
 import shortid from 'shortid';
 
-import TextFieldGroup from '../../common/TextFieldGroup';
-import MultiSelectGroup from '../../common/MultiSelectGroup';
-import MultiSelectGroupItem from '../../common/MultiSelectGroupItem';
+import TextFieldGroup from 'common/TextFieldGroup';
+import MultiSelectGroup from 'common/MultiSelectGroup';
+import MultiSelectGroupItem from 'common/MultiSelectGroupItem';
 import config from 'config';
 import translate from 'utils/translate';
 

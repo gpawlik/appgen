@@ -87,7 +87,8 @@ module.exports = {
       'utils': `${paths.appSrc}/utils`,
       'components': `${paths.appSrc}/components`,
       'common': `${paths.appSrc}/common`,
-      'config': `${paths.appSrc}/config/${process.env.NODE_ENV}`
+      'config': `${paths.appSrc}/config/${process.env.NODE_ENV}`,
+      'i18n': `${paths.appSrc}/i18n`
     }
   },
 

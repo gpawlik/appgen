@@ -1,4 +1,4 @@
-import translations from '../i18n';
+import translations from 'i18n';
 
 const currentLanguage = 'es';
 

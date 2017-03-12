@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import EventPage from './EventPage';
-import Preloader from '../../common/Preloader';
+import Preloader from 'common/Preloader';
 import { getEvent, deleteEvent } from './Events.actions';
 
 class EventPageContainer extends React.Component {

@@ -1,7 +1,8 @@
 import axios from 'axios';
-import setAuthorizationToken from 'utils/setAuthorizationToken';
 import jwtDecode from 'jwt-decode';
-import { setCurrentUser } from 'components/UsersArea/Users.actions';
+
+import setAuthorizationToken from 'utils/setAuthorizationToken';
+import { setCurrentUser } from 'components/Users/Users.actions';
 
 export function login(data) {
   return dispatch => {

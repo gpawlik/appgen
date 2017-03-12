@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-import TextFieldGroup from '../../common/TextFieldGroup';
-import validateInput from '../../utils/validations/login';
+import TextFieldGroup from 'common/TextFieldGroup';
+import validateInput from 'utils/validations/login';
 import translate from 'utils/translate';
 
 class LoginForm extends React.Component {

@@ -8,17 +8,17 @@ import requireAdmin from './utils/requireAdmin';
 import MainLayout from './components/MainLayout';
 
 // Pages
-import UsersContainer from './components/UsersArea/UsersContainer';
-import EventsContainer from './components/EventsArea/EventsContainer';
-import EventPageContainer from './components/EventsArea/EventPageContainer';
-import ProfileContainer from './components/ProfileArea/ProfileContainer';
-import EditProfileContainer from './components/ProfileArea/EditProfileContainer';
-import SignupContainer from './components/SignupArea/SignupContainer';
-import CreateEventPage from './components/EventsArea/CreateEventPage';
-import EditEventPage from './components/EventsArea/EditEventPage';
-import ErrorPage from './components/ErrorArea/ErrorPage';
-import About from './components/AboutArea/About';
-import Login from './components/LoginArea/Login';
+import UsersContainer from './components/Users/UsersContainer';
+import EventsContainer from './components/Events/EventsContainer';
+import EventPageContainer from './components/Events/EventPageContainer';
+import ProfileContainer from './components/Profile/ProfileContainer';
+import EditProfileContainer from './components/Profile/EditProfileContainer';
+import SignupContainer from './components/Signup/SignupContainer';
+import CreateEventPage from './components/Events/CreateEventPage';
+import EditEventPage from './components/Events/EditEventPage';
+import ErrorPage from './components/Error/ErrorPage';
+import About from './components/About/About';
+import Login from './components/Login/Login';
 
 export default (
   <Route component={MainLayout}>

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import TextFieldGroup from '../../common/TextFieldGroup';
-import validateInput from '../../utils/validations/signup';
+import TextFieldGroup from 'common/TextFieldGroup';
+import validateInput from 'utils/validations/signup';
 import translate from 'utils/translate';
 
 class LoginForm extends React.Component {

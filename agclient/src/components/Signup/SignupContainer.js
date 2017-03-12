@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import SignupForm from './SignupForm';
 import { userSignupRequest, isUserExists } from './Signup.actions';
 import { addFlashMessage } from 'common/Flash/Flash.actions';
-import MessageList from './../MessageArea/MessageList';
+import MessageList from 'components/Message/MessageList';
 import translate from 'utils/translate';
 
 const SignupPage = ({ signupRequest, userExists, addMessage }) => {

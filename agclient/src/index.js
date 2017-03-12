@@ -6,7 +6,7 @@ import store from './store';
 import jwtDecode from 'jwt-decode';
 import { Provider} from 'react-redux';
 import setAuthorizationToken from './utils/setAuthorizationToken';
-import { setCurrentUser } from 'components/UsersArea/Users.actions';
+import { setCurrentUser } from 'components/Users/Users.actions';
 import './styles/App.scss';
 
 // Set token after page reload

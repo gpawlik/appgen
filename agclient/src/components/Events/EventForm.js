@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import moment from 'moment';
 
-import TextFieldGroup from '../../common/TextFieldGroup';
-import TextAreaGroup from '../../common/TextAreaGroup';
+import TextFieldGroup from 'common/TextFieldGroup';
+import TextAreaGroup from 'common/TextAreaGroup';
 import translate from 'utils/translate';
 
 const EventForm = ({

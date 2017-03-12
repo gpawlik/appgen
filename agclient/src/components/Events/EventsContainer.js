@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import EventsList from './EventsList';
-import Preloader from '../../common/Preloader';
+import Preloader from 'common/Preloader';
 import { getEvents } from './Events.actions';
 
 class EventsContainer extends React.Component {

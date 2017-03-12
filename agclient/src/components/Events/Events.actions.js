@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import {
   GET_EVENTS_SUCCESS,
   GET_EVENT_SUCCESS,

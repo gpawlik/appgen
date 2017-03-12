@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Profile from './Profile';
-import Preloader from '../../common/Preloader';
-import { getUser } from 'components/UsersArea/Users.actions';
-import MessageList from './../MessageArea/MessageList';
+import Preloader from 'common/Preloader';
+import { getUser } from 'components/Users/Users.actions';
+import MessageList from 'components/Message/MessageList';
 
 class ProfileContainer extends React.Component {
 
