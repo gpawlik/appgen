@@ -1,8 +1,10 @@
 import React from 'react';
-import LoginForm from './LoginForm';
 import { connect } from 'react-redux';
+
+import LoginForm from './LoginForm';
 import { login as loginAction } from '../../actions/authActions';
 import MessageList from './../MessageArea/MessageList';
+import translate from 'utils/translate';
 
 class Login extends React.Component {
   render() {
@@ -11,7 +13,7 @@ class Login extends React.Component {
     return(
       <div>
         <MessageList />
-        <h3>Login Area</h3>
+        <h3>{translate('login.title')}</h3>
         <div className="content-wrapper">
           <LoginForm login={login} />
         </div>

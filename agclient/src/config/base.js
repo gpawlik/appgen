@@ -1,5 +1,5 @@
 export default {
-  language: 'en',
+  language: 'es',
   interestList: [
     {
       id: 'interest1',

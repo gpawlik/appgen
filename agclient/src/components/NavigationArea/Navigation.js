@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
+
 import { logout } from '../../actions/authActions';
 import { toggleNavigation } from '../../actions/uiActions';
-import classNames from 'classnames';
+import translate from 'utils/translate';
 
 class NavigationBar extends React.Component {
 
@@ -23,13 +25,13 @@ class NavigationBar extends React.Component {
     const { isMobileNavigationOpen } = this.props.ui;
 
     const userLinks = [
-      (<li key="0"><a href="#" onClick={this.logout.bind(this)}>Logout</a></li>),
-      (<li key="1"><Link to={'/user/' + user.id}>My profile</Link></li>)
+      (<li key="0"><a href="#" onClick={this.logout.bind(this)}>{translate('navigation.user.logout')}</a></li>),
+      (<li key="1"><Link to={'/user/' + user.id}>{translate('navigation.user.myProfile')}</Link></li>)
     ];
 
     const guestLinks = [
-      (<li key="0"><Link to="/login">Login</Link></li>),
-      (<li key="1"><Link to="/signup">Signup</Link></li>)
+      (<li key="0"><Link to="/login">{translate('navigation.user.login')}</Link></li>),
+      (<li key="1"><Link to="/signup">{translate('navigation.user.signup')}</Link></li>)
     ];
 
     const navClassName = classNames('MainNav', {'isMobile': isMobileNavigationOpen});
@@ -37,9 +39,9 @@ class NavigationBar extends React.Component {
     return (
       <nav className={navClassName} onClick={this.toggleNavigation.bind(this, false)}>
         <ul className="MainLinks">
-          <li><Link to="/">Events</Link></li>
-          <li><Link to="/users">Users</Link></li>
-          <li><Link to="/about">About</Link></li>
+          <li><Link to="/">{translate('navigation.content.events')}</Link></li>
+          <li><Link to="/users">{translate('navigation.content.users')}</Link></li>
+          <li><Link to="/about">{translate('navigation.content.about')}</Link></li>
         </ul>
         <ul className="AccountLinks">
           { isAuthenticated ? userLinks : guestLinks }

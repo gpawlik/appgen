@@ -1,6 +1,8 @@
 import baseConfig from './base';
 
-const config = {};
+const config = {
+  appName: 'APP (prod)'
+};
 
 export default {
   ...baseConfig,

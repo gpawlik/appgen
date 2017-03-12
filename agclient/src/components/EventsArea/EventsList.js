@@ -1,14 +1,18 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
+import translate from 'utils/translate';
+
 const EventsList = ({ events, showCreateLink }) => {
   const createEventLink = (
-    <Link to="/create-event" className="button-secondary">Create new event</Link>
+    <Link to="/create-event" className="button-secondary">
+      {translate('events.list.createNew')}
+    </Link>
   );
 
   return (
     <div className="EventsListArea">
-      <h3>Events list</h3>
+      <h3>{translate('events.list.title')}</h3>
       <ul className="EventsList">
         {events.map((event, idx) => {
           return (

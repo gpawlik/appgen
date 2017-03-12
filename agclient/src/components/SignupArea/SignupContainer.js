@@ -1,15 +1,17 @@
 import React from 'react';
-import SignupForm from './SignupForm';
 import { connect } from 'react-redux';
+
+import SignupForm from './SignupForm';
 import { userSignupRequest, isUserExists } from '../../actions/signup';
 import { addFlashMessage } from '../../actions/flash';
 import MessageList from './../MessageArea/MessageList';
+import translate from 'utils/translate';
 
 const SignupPage = ({ signupRequest, userExists, addMessage }) => {
   return(
     <div>
       <MessageList />
-      <h3>SignUp Area</h3>
+      <h3>{translate('signup.title')}</h3>
       <div className="content-wrapper">
         <SignupForm
           userSignupRequest={signupRequest}

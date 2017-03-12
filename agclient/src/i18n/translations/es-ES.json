@@ -1,5 +1,118 @@
 {
   "about": {
-    "title": "Sobre!"
+    "title": "Sobre"
+  },
+  "404": {
+    "title": "Página 404",
+    "subtitle": "Algo ha ido mal...",
+    "backText": "Vuelve a",
+    "backLink": "página de inicio"
+  },
+  "messages": {
+    "eventCreateSuccess": "Evento creado con éxito!",
+    "eventEditSuccess": "Evento editado con éxito!",
+    "userCreateSuccess": "Usuario creado con éxito!",
+    "userEditSuccess": "Usuario editado con éxito!"
+  },
+  "users": {
+    "edit": {
+      "title": "Editar usuario",
+      "form": {
+        "label": {
+          "username": "Usuario",
+          "email": "E-mail",
+          "location": "Locación",
+          "interests": "Intereses"
+        },
+        "saveButton": "Guardar cambios"
+      }
+    },
+    "profile": {
+      "title": "Perfil de usuario",
+      "label": {
+        "interests": "Intereses",
+        "created": "Creado"
+      },
+      "editButton": "Editar mi perfil"
+    },
+    "list": {
+      "title": "Listado de usuarios"
+    }
+  },
+  "events": {
+    "create": {
+      "title": "Evento nuevo",
+      "buttonText": "Crear evento"
+    },
+    "edit": {
+      "title": "Editar evento",
+      "buttonText": "Editar",
+      "form": {
+        "label": {
+          "title": "Título de evento",
+          "headline": "Headline de evento",
+          "description": "Descripción de evento",
+          "date": "Fecha de evento"
+        }
+      }
+    },
+    "profile": {
+      "title": "Perfil de evento",
+      "label": {
+        "title": "Título",
+        "headline": "Headline",
+        "description": "Descripción",
+        "date": "Fecha de evento",
+        "created": "Creado"
+      }
+    },
+    "list": {
+      "title": "Listado de eventos",
+      "createNew": "Crea un evento nuevo"
+    }
+  },
+  "login": {
+    "title": "Area de Login",
+    "form": {
+      "label": {
+        "identifier": "Usuario / Email",
+        "password": "Contraseña"
+      },
+      "error": {
+        "name": "Ya existe usuario con este nombre:"
+      },
+      "button": "Login",
+      "signUpText": "Aún no tienes cuenta? Inscribete!"
+    }
+  },
+  "signup": {
+    "title": "Inscripcion",
+    "form": {
+      "label": {
+        "username": "Nombre de usuario",
+        "email": "E-mail",
+        "password": "Contraseña",
+        "repeatPassword": "Repite contraseña"
+      },
+      "button": "Inscribete!"
+    }
+  },
+  "navigation": {
+    "user": {
+      "login": "Login",
+      "logout": "Logout",
+      "signup": "Signup",
+      "myProfile": "Mi perfil"
+    },
+    "content": {
+      "events": "Eventos",
+      "users": "Usuarios",
+      "about": "Sobre"
+    }
+  },
+  "social": {
+    "fb": "Facebook",
+    "tw": "Twitter",
+    "in": "Instagram"
   }
 }

@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { createEvent } from '../../actions/eventActions';
 import { addFlashMessage } from '../../actions/flash';
 import EventForm from './EventForm';
+import translate from 'utils/translate';
 
 // TODO: add client validation
 class CreateEventPage extends React.Component {
@@ -33,7 +35,7 @@ class CreateEventPage extends React.Component {
       .then(() => {
         this.props.addFlashMessage({
           type: 'success',
-          text: 'Event succesfully created!',
+          text: translate('messages.eventCreateSuccess'),
           category: 'event_created'
         });
         this.context.router.push('/');
@@ -49,11 +51,11 @@ class CreateEventPage extends React.Component {
   render() {
     return (
       <div className="content-wrapper">
-        <h3>New Event</h3>
+        <h3>{translate('events.create.title')}</h3>
         <EventForm
           onSubmit={this.onSubmit}
           onChange={this.onChange}
-          buttonText="Create event"
+          buttonText={translate('events.create.buttonText')}
           {...this.state}
         />
       </div>

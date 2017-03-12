@@ -7,5 +7,112 @@
     "subtitle": "Something went wrong...",
     "backText": "Go back to the",
     "backLink": "home page"
+  },
+  "messages": {
+    "eventCreateSuccess": "Event succesfully created!",
+    "eventEditSuccess": "Event succesfully edited!",
+    "userCreateSuccess": "User succesfully created!",
+    "userEditSuccess": "User succesfully edited!"
+  },
+  "users": {
+    "edit": {
+      "title": "Edit user",
+      "form": {
+        "label": {
+          "username": "Username",
+          "email": "E-mail",
+          "location": "Location",
+          "interests": "Interests"
+        },
+        "saveButton": "Save Changes"
+      }
+    },
+    "profile": {
+      "title": "User Profile",
+      "label": {
+        "interests": "Interests",
+        "created": "Created"
+      },
+      "editButton": "Edit my profile"
+    },
+    "list": {
+      "title": "Users list"
+    }
+  },
+  "events": {
+    "create": {
+      "title": "New event",
+      "buttonText": "Create event"
+    },
+    "edit": {
+      "title": "Edit Event",
+      "buttonText": "Edit event",
+      "form": {
+        "label": {
+          "title": "Event title",
+          "headline": "Event headline",
+          "description": "Event description",
+          "date": "Event date"
+        }
+      }
+    },
+    "profile": {
+      "title": "Event Profile",
+      "label": {
+        "title": "Title",
+        "headline": "Headline",
+        "description": "Description",
+        "date": "Event date",
+        "created": "Created"
+      }
+    },
+    "list": {
+      "title": "Events list",
+      "createNew": "Create new event"
+    }
+  },
+  "login": {
+    "title": "Login Area",
+    "form": {
+      "label": {
+        "identifier": "Username / Email",
+        "password": "Password"
+      },
+      "error": {
+        "name": "There is already a user with name:"
+      },
+      "button": "Login",
+      "signUpText": "Don't have account? Sign up!"
+    }
+  },
+  "signup": {
+    "title": "SignUp Area",
+    "form": {
+      "label": {
+        "username": "Username",
+        "email": "E-mail",
+        "password": "Password",
+        "repeatPassword": "Repeat password"
+      },
+      "button": "Sign up!"
+    }
+  },
+  "navigation": {
+    "user": {
+      "login": "Login",
+      "logout": "Logout",
+      "signup": "Signup",
+      "myProfile": "My Profile"
+    },
+    "content": {
+      "events": "Events",
+      "users": "Users",
+      "about": "About"
+    }
+  },
+  "social": {
+    "fb": "Facebook",
+    "tw": "Twitter",
+    "in": "Instagram"
   }
 }

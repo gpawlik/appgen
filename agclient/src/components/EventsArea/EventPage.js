@@ -2,6 +2,8 @@ import React, { PropTypes } from 'react';
 import moment from 'moment';
 import { Link } from 'react-router';
 
+import translate from 'utils/translate';
+
 const EventPage = ({ event, isAdmin, deleteEvent }) => {
   const { _id, title, headline, description, eventDate, createdAt } = event;
   const eventDateFormatted = moment(eventDate).format('DD/MM/YYYY');
@@ -15,27 +17,39 @@ const EventPage = ({ event, isAdmin, deleteEvent }) => {
 
   return (
     <div className="EventProfile">
-      <h3 className="content-wrapper">Event Profile</h3>
-      <div className="profile-image"></div>
+      <h3 className="content-wrapper">
+        {translate('events.profile.title')}
+      </h3>
+      <div className="profile-image" />
       <div className="content-wrapper">
         <p>
-          <span className="profile-label">Title</span>
+          <span className="profile-label">
+            {translate('events.profile.label.title')}
+          </span>
           {title}
         </p>
         <p>
-          <span className="profile-label">Headline</span>
+          <span className="profile-label">
+            {translate('events.profile.label.headline')}
+          </span>
           {headline}
         </p>
         <p>
-          <span className="profile-label">Description</span>
+          <span className="profile-label">
+            {translate('events.profile.label.description')}
+          </span>
           {description}
         </p>
         <p>
-          <span className="profile-label">Event date</span>
+          <span className="profile-label">
+            {translate('events.profile.label.date')}
+          </span>
           {eventDateFormatted}
         </p>
         <p>
-          <span className="profile-label">Created</span>
+          <span className="profile-label">
+            {translate('events.profile.label.created')}
+          </span>
           {timeCreated}
         </p>
         {isAdmin && adminLinks}

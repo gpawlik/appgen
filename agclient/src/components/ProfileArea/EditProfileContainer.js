@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import EditProfileForm from './EditProfileForm';
 import { getUser, editUser } from '../../actions/userActions';
 import { addFlashMessage } from '../../actions/flash';
+import translate from 'utils/translate';
 
 class EditProfileContainer extends React.Component {
 
@@ -37,7 +39,7 @@ class EditProfileContainer extends React.Component {
       .then(() => {
         this.props.addFlashMessage({
           type: 'success',
-          text: 'User succesfully edited!',
+          text: translate('messages.userEditSuccess'),
           category: 'user_edited'
         });
         this.context.router.push('/user/' + this.state.user.id);
@@ -96,7 +98,7 @@ class EditProfileContainer extends React.Component {
   render() {
     return (
       <div className="content-wrapper">
-        <h3>Edit user</h3>
+        <h3>{translate('users.edit.title')}</h3>
         <EditProfileForm
           onChange={this.onChange}
           onSubmit={this.onSubmit}

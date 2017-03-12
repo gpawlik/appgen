@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react';
+import moment from 'moment';
+
 import TextFieldGroup from '../../common/TextFieldGroup';
 import TextAreaGroup from '../../common/TextAreaGroup';
-import moment from 'moment';
+import translate from 'utils/translate';
 
 const EventForm = ({
   title,
@@ -18,7 +20,7 @@ const EventForm = ({
     <form onSubmit={onSubmit} className="form-box">
       <TextFieldGroup
         field="title"
-        label="Event title"
+        label={translate('events.edit.form.label.title')}
         value={title}
         error={errors.title}
         onChange={onChange}
@@ -26,7 +28,7 @@ const EventForm = ({
 
       <TextFieldGroup
         field="headline"
-        label="Event headline"
+        label={translate('events.edit.form.label.headline')}
         value={headline}
         error={errors.headline}
         onChange={onChange}
@@ -34,7 +36,7 @@ const EventForm = ({
 
       <TextAreaGroup
         field="description"
-        label="Event description"
+        label={translate('events.edit.form.label.description')}
         value={description}
         error={errors.description}
         onChange={onChange}
@@ -42,7 +44,7 @@ const EventForm = ({
 
       <TextFieldGroup
         field="eventDate"
-        label="Event date"
+        label={translate('events.edit.form.label.date')}
         value={moment(eventDate).format('YYYY/MM/DD')}
         error={errors.eventDate}
         onChange={onChange}

@@ -1,6 +1,8 @@
 import React from 'react';
+
 import TextFieldGroup from '../../common/TextFieldGroup';
 import validateInput from '../../utils/validations/signup';
+import translate from 'utils/translate';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -31,7 +33,7 @@ class LoginForm extends React.Component {
         let invalid;
 
         if (res.data.user) {
-          errors[name] = 'There is user with such ' + name;
+          errors[name] = translate('signup.form.error.name') + name;
           invalid = true;
         } else {
           errors[name] = '';
@@ -54,7 +56,7 @@ class LoginForm extends React.Component {
         .then(() => {
           this.props.addFlashMessage({
             type: 'success',
-            text: 'User succesfully created!',
+            text: translate('messages.userCreateSuccess'),
             category: 'user_created'
           });
           this.context.router.push('/login');
@@ -88,7 +90,7 @@ class LoginForm extends React.Component {
       <form onSubmit={this.onSubmit} className="form-box">
         <TextFieldGroup
           field="username"
-          label="Username"
+          label={translate('signup.form.label.username')}
           value={username}
           error={errors.username}
           onChange={this.onChange}
@@ -96,7 +98,7 @@ class LoginForm extends React.Component {
           />
         <TextFieldGroup
           field="email"
-          label="Email"
+          label={translate('signup.form.label.email')}
           value={email}
           error={errors.email}
           onChange={this.onChange}
@@ -105,7 +107,7 @@ class LoginForm extends React.Component {
           />
         <TextFieldGroup
           field="password"
-          label="Password"
+          label={translate('signup.form.label.password')}
           value={password}
           error={errors.password}
           onChange={this.onChange}
@@ -113,13 +115,13 @@ class LoginForm extends React.Component {
           />
         <TextFieldGroup
           field="passwordConfirmation"
-          label="Re-enter Password"
+          label={translate('signup.form.label.repeatPassword')}
           value={passwordConfirmation}
           error={errors.passwordConfirmation}
           onChange={this.onChange}
           type="password"
           />
-        <button disabled={isLoading || invalid} className="button-primary">Sign up!</button>
+        <button disabled={isLoading || invalid} className="button-primary">{translate('signup.form.button')}</button>
       </form>
     );
   }

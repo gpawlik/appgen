@@ -1,8 +1,10 @@
 import React from 'react';
-import { toggleNavigation } from '../../actions/uiActions';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
+
+import { toggleNavigation } from '../../actions/uiActions';
+import config from 'config';
 
 class Header extends React.Component {
   toggleNavigation(toggleState) {
@@ -14,7 +16,7 @@ class Header extends React.Component {
 
     return (
       <div className="Header">
-        <h1><Link to="/">[APP-NAME]</Link></h1>
+        <h1><Link to="/">{config.appName}</Link></h1>
         <div
           className={classNames('menu-icon', { 'open': isMobileNavigationOpen })}
           onClick={this.toggleNavigation.bind(this, !isMobileNavigationOpen)}>

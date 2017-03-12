@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { getEvent, editEvent } from '../../actions/eventActions';
 import { addFlashMessage } from '../../actions/flash';
 import EventForm from './EventForm';
+import translate from 'utils/translate';
 
 class EditEventPage extends React.Component {
 
@@ -57,7 +59,7 @@ class EditEventPage extends React.Component {
       .then(() => {
         this.props.addFlashMessage({
           type: 'success',
-          text: 'Event succesfully edited!',
+          text: translate('messages.eventEditSuccess'),
           category: 'event_edited'
         });
         this.context.router.push('/');
@@ -73,11 +75,11 @@ class EditEventPage extends React.Component {
   render() {
     return (
       <div className="content-wrapper">
-        <h3>Edit Event</h3>
+        <h3>{translate('events.edit.title')}</h3>
         <EventForm
           onSubmit={this.onSubmit}
           onChange={this.onChange}
-          buttonText="Edit event"
+          buttonText={translate('events.edit.buttonText')}
           {...this.state}
         />
       </div>

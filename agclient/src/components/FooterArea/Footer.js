@@ -1,15 +1,18 @@
 import React from 'react';
 
+import translate from 'utils/translate';
+import config from 'config';
+
 export default () => {
   return (
     <div className="Footer">
       <p className="footer-headline">
-        [APP-NAME]
+        {config.appName}
       </p>
       <ul className="footer-links">
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Instagram</a></li>
+        <li><a href="#">{translate('social.fb')}</a></li>
+        <li><a href="#">{translate('social.tw')}</a></li>
+        <li><a href="#">{translate('social.in')}</a></li>
       </ul>
     </div>
   );

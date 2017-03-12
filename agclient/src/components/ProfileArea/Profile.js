@@ -3,6 +3,8 @@ import moment from 'moment';
 import shortid from 'shortid';
 import { Link } from 'react-router';
 
+import translate from 'utils/translate';
+
 const Profile = ({ user }) => {
   const { _id, username, email, location, interests, createdAt } = user;
   const timeCreated = moment(createdAt).fromNow();
@@ -13,7 +15,7 @@ const Profile = ({ user }) => {
   return (
     <div className="UserProfile">
       <div className="content-wrapper">
-        <h3>User Profile</h3>
+        <h3>{translate('users.profile.title')}</h3>
         <div className="profile-card">
           <div className="profile-top">
             <span className="profile-thumbnail"></span>
@@ -26,7 +28,7 @@ const Profile = ({ user }) => {
 
             {location && locationField}
 
-            <p><span className="profile-label">Interests</span></p>
+            <p><span className="profile-label">{translate('users.profile.label.interests')}</span></p>
             <ul className="profile-interests">
               {interests && interests.map(interest => {
                 return (
@@ -35,11 +37,11 @@ const Profile = ({ user }) => {
               })}
             </ul>
 
-            <p><span className="profile-label">Created</span>{timeCreated}</p>
+            <p><span className="profile-label">{translate('users.profile.label.created')}</span>{timeCreated}</p>
 
           </div>
         </div>
-        <Link to={'/user/edit/' + _id} className="button-secondary">Edit my profile</Link>
+        <Link to={'/user/edit/' + _id} className="button-secondary">{translate('users.profile.editButton')}</Link>
       </div>
     </div>
   );

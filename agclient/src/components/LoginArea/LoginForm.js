@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router';
+
 import TextFieldGroup from '../../common/TextFieldGroup';
 import validateInput from '../../utils/validations/login';
-import { Link } from 'react-router';
+import translate from 'utils/translate';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -56,21 +58,25 @@ class LoginForm extends React.Component {
         { errors.form }
         <TextFieldGroup
           field="identifier"
-          label="Usersname / Email"
+          label={translate('login.form.label.identifier')}
           value={identifier}
           error={errors.identifier}
           onChange={this.onChange}
           />
         <TextFieldGroup
           field="password"
-          label="Password"
+          label={translate('login.form.label.password')}
           value={password}
           error={errors.password}
           onChange={this.onChange}
           type="password"
           />
-        <button disabled={isLoading} className="button-primary">Login</button>
-        <Link to="/signup" className="secondary-link">Don't have account? Sign up!</Link>
+        <button disabled={isLoading} className="button-primary">
+          {translate('login.form.button')}
+        </button>
+        <Link to="/signup" className="secondary-link">
+          {translate('login.form.signUpText')}
+        </Link>
       </form>
     );
   }

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import translate from 'utils/translate';
+
 const UsersList = ({ users, deleteUser }) => {
   return (
     <div className="UsersListArea">
-      <h3>Users list</h3>
+      <h3>{translate('users.list.title')}</h3>
       <ul className="UsersList">
         {users.map((user, idx) => {
           return (
