@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addFlashMessage } from '../actions/flash';
+import { addFlashMessage } from 'common/Flash/Flash.actions';
 
 // Wrap the component in HOC - higher order component
 export default ComposedComponent => {

@@ -1,4 +1,6 @@
-import { UI_TOGGLE_NAVIGATION } from '../actions/types';
+import {
+  UI_TOGGLE_NAVIGATION
+} from './Ui.actionTypes';
 
 const initialState = {
   isMobileNavigationOpen: false

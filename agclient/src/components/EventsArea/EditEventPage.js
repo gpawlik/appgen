@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getEvent, editEvent } from '../../actions/eventActions';
-import { addFlashMessage } from '../../actions/flash';
+import { getEvent, editEvent } from './Events.actions';
+import { addFlashMessage } from 'common/Flash/Flash.actions';
 import EventForm from './EventForm';
 import translate from 'utils/translate';
 

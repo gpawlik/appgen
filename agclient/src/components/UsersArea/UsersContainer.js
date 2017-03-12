@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import UsersList from './UsersList';
 import Preloader from '../../common/Preloader';
-import { getUsers, deleteUser } from '../../actions/userActions';
+import { getUsers, deleteUser } from './Users.actions';
 
 class UsersContainer extends React.Component {
   constructor(props) {

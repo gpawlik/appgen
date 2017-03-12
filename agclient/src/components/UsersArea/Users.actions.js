@@ -1,5 +1,19 @@
 import axios from 'axios';
-import * as types from './types';
+import {
+  SET_CURRENT_USER,
+  GET_USERS_SUCCESS,
+  GET_USER_SUCCESS,
+  ADD_USER_SUCCESS,
+  EDIT_USER_SUCCESS,
+  DELETE_USER_SUCCESS
+} from './Users.actionTypes';
+
+export function setCurrentUser(user) {
+  return {
+    type: SET_CURRENT_USER,
+    user
+  };
+}
 
 export function getUsers() {
   return dispatch => {
@@ -7,7 +21,7 @@ export function getUsers() {
       .get('/api/users')
       .then(res => {
         dispatch({
-          type: types.GET_USERS_SUCCESS,
+          type: GET_USERS_SUCCESS,
           users: res.data
         });
       });
@@ -20,7 +34,7 @@ export function getUser(userId) {
       .get('/api/users/' + userId)
       .then(res => {
         dispatch({
-          type: types.GET_USER_SUCCESS,
+          type: GET_USER_SUCCESS,
           user: res.data.user
         });
       });
@@ -35,7 +49,7 @@ export function addUser() {
     .post('/api/users', { name: newUser })
       .then(res => {
         dispatch({
-          type: types.ADD_USER_SUCCESS,
+          type: ADD_USER_SUCCESS,
           user: res.data.user
         });
       });
@@ -53,7 +67,7 @@ export function editUser(user) {
       })
       .then(res => {
         dispatch({
-          type: types.EDIT_USER_SUCCESS,
+          type: EDIT_USER_SUCCESS,
           user: res.data.user
         });
       });
@@ -66,7 +80,7 @@ export function deleteUser(userId) {
       .delete('/api/users/' + userId)
       .then(() => {
         dispatch({
-          type: types.DELETE_USER_SUCCESS,
+          type: DELETE_USER_SUCCESS,
           userId
         });
       });

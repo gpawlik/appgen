@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
-import { toggleNavigation } from '../../actions/uiActions';
+import { toggleNavigation } from 'common/Ui/Ui.actions';
 import config from 'config';
 
 class Header extends React.Component {

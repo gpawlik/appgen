@@ -1,24 +1,31 @@
+import {
+  GET_USERS_SUCCESS,
+  ADD_USER_SUCCESS,
+  EDIT_USER_SUCCESS,
+  DELETE_USER_SUCCESS
+} from './Users.actionTypes';
+
 const initialState = {
   users: []
 };
 
 const userReducer = (state = initialState, action) => {
   switch(action.type) {
-    case 'GET_USERS_SUCCESS':
+    case GET_USERS_SUCCESS:
       return Object.assign({}, state, { users: action.users });
-    case 'ADD_USER_SUCCESS':
+    case ADD_USER_SUCCESS:
       const usersAfterAdd = state.users.slice();
 
       usersAfterAdd.push(action.user);
       return Object.assign({}, state, { users: usersAfterAdd });
-    case 'EDIT_USER_SUCCESS':
+    case EDIT_USER_SUCCESS:
       const usersAfterEdit = state.users.map(user => {
         if (user._id === action.user._id) user.name = action.user.name;
         return user;
       });
 
       return Object.assign({}, state, { users: usersAfterEdit });
-    case 'DELETE_USER_SUCCESS':
+    case DELETE_USER_SUCCESS:
       const usersAfterDelete = state.users.filter(user => user._id !== action.userId);
 
       return Object.assign({}, state, { users: usersAfterDelete });

@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import EditProfileForm from './EditProfileForm';
-import { getUser, editUser } from '../../actions/userActions';
-import { addFlashMessage } from '../../actions/flash';
+import { getUser, editUser } from 'components/UsersArea/Users.actions';
+import { addFlashMessage } from 'common/Flash/Flash.actions';
 import translate from 'utils/translate';
 
 class EditProfileContainer extends React.Component {

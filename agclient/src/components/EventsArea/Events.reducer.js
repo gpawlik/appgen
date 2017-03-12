@@ -1,7 +1,7 @@
 import {
   GET_EVENTS_SUCCESS,
   DELETE_EVENT_SUCCESS
-} from '../actions/types';
+} from './Events.actionTypes';
 
 const initialState = {
   events: []

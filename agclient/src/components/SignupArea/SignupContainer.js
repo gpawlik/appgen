@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import SignupForm from './SignupForm';
-import { userSignupRequest, isUserExists } from '../../actions/signup';
-import { addFlashMessage } from '../../actions/flash';
+import { userSignupRequest, isUserExists } from './Signup.actions';
+import { addFlashMessage } from 'common/Flash/Flash.actions';
 import MessageList from './../MessageArea/MessageList';
 import translate from 'utils/translate';
 

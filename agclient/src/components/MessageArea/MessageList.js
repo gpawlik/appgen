@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import MessageItem from './MessageItem';
-import { deleteFlashMessage, cleanFlashMessages } from '../../actions/flash';
+import { deleteFlashMessage, cleanFlashMessages } from 'common/Flash/Flash.actions';
 
 class MessageList extends React.Component {
 

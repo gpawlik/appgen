@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
-import { logout } from '../../actions/authActions';
-import { toggleNavigation } from '../../actions/uiActions';
+import { logout } from 'common/Auth/Auth.actions';
+import { toggleNavigation } from 'common/Ui/Ui.actions';
 import translate from 'utils/translate';
 
 class NavigationBar extends React.Component {

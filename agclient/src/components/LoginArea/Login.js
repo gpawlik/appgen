@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import LoginForm from './LoginForm';
-import { login as loginAction } from '../../actions/authActions';
+import { login as loginAction } from 'common/Auth/Auth.actions';
 import MessageList from './../MessageArea/MessageList';
 import translate from 'utils/translate';
 
