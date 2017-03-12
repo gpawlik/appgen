@@ -1,0 +1,11 @@
+{
+  "about": {
+    "title": "About"
+  },
+  "404": {
+    "title": "404 Page",
+    "subtitle": "Something went wrong...",
+    "backText": "Go back to the",
+    "backLink": "home page"
+  }
+}

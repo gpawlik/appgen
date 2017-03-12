@@ -1,9 +1,11 @@
 import React from 'react';
 
+import translate from 'utils/translate';
+
 export default () => {
   return (
     <div className="content-wrapper">
-      <h3>About</h3>
+      <h3>{translate('about.title')}</h3>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas rutrum tristique urna, a bibendum velit malesuada nec. Aliquam eleifend sit amet arcu hendrerit varius. Sed hendrerit pulvinar diam, vel rhoncus arcu efficitur vel. Morbi pellentesque mollis leo, ut accumsan odio maximus vel. Suspendisse justo tellus, fermentum at laoreet ut, mollis ac lacus.
       </p>

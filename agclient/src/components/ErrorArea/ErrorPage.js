@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import translate from 'utils/translate';
+
 export default () => {
   return (
     <div className="content-wrapper">
-      <h3>404 Page</h3>
+      <h3>{translate('404.title')}</h3>
       <div>
-        <p>Something went wrong...</p>
-        <p>Go back to the <Link to="/">home page</Link>.</p>
+        <p>{translate('404.subtitle')}</p>
+        <p>{translate('404.backText')} <Link to="/">{translate('404.backLink')}</Link>.</p>
       </div>
     </div>
   );
