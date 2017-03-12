@@ -110,6 +110,13 @@
       "about": "Sobre"
     }
   },
+  "interests": {
+    "animals": "Animales",
+    "environment": "Medio ambiente",
+    "children": "Niños",
+    "poverty": "Pobreza",
+    "empowerment": "Refuerzo"
+  },
   "social": {
     "fb": "Facebook",
     "tw": "Twitter",

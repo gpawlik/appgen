@@ -4,7 +4,7 @@ import shortid from 'shortid';
 import TextFieldGroup from '../../common/TextFieldGroup';
 import MultiSelectGroup from '../../common/MultiSelectGroup';
 import MultiSelectGroupItem from '../../common/MultiSelectGroupItem';
-import { interestList } from '../../config';
+import config from 'config';
 import translate from 'utils/translate';
 
 const EditProfileForm = ({ user, errors, onChange, onSelectInterest, onSubmit }) => {
@@ -34,9 +34,9 @@ const EditProfileForm = ({ user, errors, onChange, onSelectInterest, onSubmit })
       <MultiSelectGroup
         field="interests"
         label={translate('users.edit.form.label.interests')}
-        options={interestList}
+        options={config.interestList}
         error={errors.interests}>
-        {interestList.map(interest => {
+        {config.interestList.map(interest => {
           const selected = user.interests ? user.interests.indexOf(interest.id) !== -1 : false;
 
           return (

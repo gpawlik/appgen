@@ -1,8 +1,9 @@
 import translations from '../i18n';
-import config from 'config';
+
+const currentLanguage = 'es';
 
 function translate(key) {
-  const string = [config.language].concat(key.split('.')).reduce((o, k) => {
+  const string = [currentLanguage].concat(key.split('.')).reduce((o, k) => {
     const next = o[k];
 
     if (next) {

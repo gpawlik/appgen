@@ -1,21 +1,22 @@
+import translate from 'utils/translate';
+
 export default {
-  language: 'es',
   interestList: [
     {
       id: 'interest1',
-      title: 'Animals'
+      title: translate('interests.animals')
     }, {
       id: 'interest2',
-      title: 'Environment'
+      title: translate('interests.environment')
     }, {
       id: 'interest3',
-      title: 'Children'
+      title: translate('interests.children')
     }, {
       id: 'interest4',
-      title: 'Poverty'
+      title: translate('interests.poverty')
     }, {
       id: 'interest5',
-      title: 'Empowerment'
+      title: translate('interests.empowerment')
     }
   ]
 };
