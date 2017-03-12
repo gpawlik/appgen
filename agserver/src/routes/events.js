@@ -13,10 +13,10 @@ router.post('/', adminRestricted, function (req, res) {
   if (isValid) {
     const { title, headline, description, eventDate } = req.body;
     const newEvent = new Event({
-      title: title,
-      headline: headline,
-      description: description,
-      eventDate: eventDate,
+      title,
+      headline,
+      description,
+      eventDate: (new Date()).toISOString(eventDate),
       createdAt: Date.now()
     });
 

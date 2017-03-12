@@ -45,7 +45,7 @@ const EventForm = ({
       <TextFieldGroup
         field="eventDate"
         label={translate('events.edit.form.label.date')}
-        value={moment(eventDate).format('YYYY/MM/DD')}
+        value={eventDate}
         error={errors.eventDate}
         onChange={onChange}
         placeholder="YYYY/MM/DD"
@@ -60,7 +60,10 @@ EventForm.propTypes = {
   title: PropTypes.string.isRequired,
   headline: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  eventDate: PropTypes.string.isRequired,
+  eventDate: PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number
+  ]).isRequired,
   errors: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired

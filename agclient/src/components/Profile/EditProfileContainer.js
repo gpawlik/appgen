@@ -29,7 +29,12 @@ class EditProfileContainer extends React.Component {
   }
 
   onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({
+      user: {
+        ...this.state.user,
+        [e.target.name]: e.target.value
+      }
+    });
   }
 
   onSubmit(e) {
@@ -54,7 +59,10 @@ class EditProfileContainer extends React.Component {
 
   onSelectInterest(id) {
     this.setState({
-      user: { ...this.state.user, interests: this.toggleInterests(id) }
+      user: {
+        ...this.state.user,
+        interests: this.toggleInterests(id)
+      }
     });
   }
 

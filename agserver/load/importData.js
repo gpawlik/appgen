@@ -1,5 +1,7 @@
 'use strict';
 
+import bcrypt from 'bcrypt';
+
 import Event from '../src/models/event';
 import User from '../src/models/user';
 
@@ -10,9 +12,9 @@ const usersImport = () => {
   return users.reduce((memo, data) => {
     const { username, email, password, location, interests, isAdmin, createdAt = Date.now(), updatedAt = Date.now() } = data;
     const newUser = new User({
+      password: bcrypt.hashSync(password, 10),
       username,
       email,
-      password,
       location,
       interests,
       isAdmin,

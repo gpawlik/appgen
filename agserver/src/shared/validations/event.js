@@ -16,9 +16,10 @@ const validateInput = data => {
   if (Validator.isEmpty(data.eventDate)) {
     errors.eventDate = 'Enter an event date';
   }
-  if (Validator.isDate(data.eventDate)) {
+  /*
+  if (Validator.isISO8601(data.eventDate)) {
     errors.eventDate = 'Enter a valid date';
-  }
+  }*/
   return {
     errors,
     isValid: isEmpty(errors)
