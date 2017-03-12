@@ -6,46 +6,47 @@ import { getUser } from '../../actions/userActions';
 import MessageList from './../MessageArea/MessageList';
 
 class ProfileContainer extends React.Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            isLoading: true
-        }
-    } 
-    
-    componentDidMount() {        
-        this.fetchUserData(this.props.params.userId);
-    }
-    
-    componentWillReceiveProps(newProps) {
-        if(newProps.params.userId !== this.props.params.userId) {
-            this.setState({ isLoading: true });
-            this.fetchUserData(newProps.params.userId);
-        }        
-    }
-    
-    fetchUserData(userId) {
-        this.props.getUser(userId).then(res => {
-            this.setState({ isLoading: false });
-        });
-    }
 
-    render() {         
-        return (
-            <div>
-                {this.state.isLoading && <Preloader />}
-                <MessageList />
-                <Profile user={this.props.user} />
-            </div>            
-        )
-    }        
-};
+  constructor(props) {
+    super(props);
 
-const mapStateToProps = function(store) {
-    return {
-        user: store.profileState.user
+    this.state = {
+      isLoading: true
     };
+  }
+
+  componentDidMount() {
+    this.fetchUserData(this.props.params.userId);
+  }
+
+  componentWillReceiveProps(newProps) {
+    if(newProps.params.userId !== this.props.params.userId) {
+      this.setState({ isLoading: true });
+      this.fetchUserData(newProps.params.userId);
+    }
+  }
+
+  fetchUserData(userId) {
+    this.props.getUser(userId).then(() => {
+      this.setState({ isLoading: false });
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.isLoading && <Preloader />}
+        <MessageList />
+        <Profile user={this.props.user} />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = store => {
+  return {
+    user: store.profileState.user
+  };
 };
 
 export default connect(mapStateToProps, { getUser })(ProfileContainer);

@@ -50,6 +50,7 @@
     "semi": 1,
     "no-extra-semi": 1,
     "no-extra-bind": 1,
+    "no-case-declarations": 0,
     "no-eval": 0,
     "no-invalid-this": 0,
     "no-underscore-dangle": 0,

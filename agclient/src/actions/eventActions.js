@@ -35,7 +35,7 @@ export function editEvent(data) {
   return dispatch => {
     return axios
       .put('/api/events/' + data.id, data)
-      .then(res => {
+      .then(() => {
         dispatch({
           type: types.EDIT_EVENT_SUCCESS,
           data
@@ -48,7 +48,7 @@ export function deleteEvent(eventId) {
   return dispatch => {
     return axios
       .delete('/api/events/' + eventId)
-      .then(res => {
+      .then(() => {
         dispatch({
           type: types.DELETE_EVENT_SUCCESS,
           eventId

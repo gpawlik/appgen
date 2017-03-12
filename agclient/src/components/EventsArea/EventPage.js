@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import moment from 'moment';
 import { Link } from 'react-router';
 
-const EventPage = ({ event, deleteEvent }) => {
+const EventPage = ({ event, isAdmin, deleteEvent }) => {
   const { _id, title, headline, description, eventDate, createdAt } = event;
   const eventDateFormatted = moment(eventDate).format('DD/MM/YYYY');
   const timeCreated = moment(createdAt).fromNow();
@@ -38,7 +38,7 @@ const EventPage = ({ event, deleteEvent }) => {
           <span className="profile-label">Created</span>
           {timeCreated}
         </p>
-        {this.props.isAdmin && adminLinks}
+        {isAdmin && adminLinks}
       </div>
     </div>
   );
@@ -46,6 +46,7 @@ const EventPage = ({ event, deleteEvent }) => {
 
 EventPage.propTypes = {
   event: PropTypes.object.isRequired,
+  isAdmin: PropTypes.bool,
   deleteEvent: PropTypes.func
 };
 
